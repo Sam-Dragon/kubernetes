@@ -1,0 +1,6 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://${DB_USERNAME}:${DB_PASSWORD}@${DB_URL}:27017
+      database: employees
+      
