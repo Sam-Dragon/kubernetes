@@ -1,0 +1,234 @@
+# Kubernates - Minikube [Local]
+
+# Start
+minikube start
+
+# Start with Docker
+minikube start --driver=docker
+
+# Get Kube System as per Kube
+minikube kubectl -- get po -A
+
+# Run In Docker Dev
+minikube docker-dev  --> Not working
+
+# Dashboard
+minikube dashboard
+
+# Dashboard Url
+minikube dashboard --url
+
+# Get Status
+minikube status
+
+# Assign External Ip
+minikube service SERVICE 
+
+# Get Exposed service url 
+minikube service SERVICE --url 
+
+# Install Ingress Controller 
+minikube addons enable ingress
+
+# Verify Ingress Controller
+minikube get pod -n kube-system
+minikube tunnel INGRESS_NAME
+
+# Services
+minikube service list
+
+# Addons
+minikube addons list
+
+# Enable & Disable Addon
+minikube addons [enable/disable] AddOn [metrics-server]
+
+
+# KUBECTL COMMANDS
+
+# Version
+kubectl version
+
+# Get all details
+kubectl get all
+
+# Get Kube System
+kubectl get po -A
+
+# Get Nodes
+kubectl get nodes
+
+# Get Nodes with IP
+kubectl get nodes -o wide
+
+# Get Specific Node Details
+kubectl get all -n NODE
+
+
+## Cluster
+# Get all cluster
+kubectl cluster-info
+
+# Get all cluster dump
+kubectl cluster-info dump
+
+## Images
+# Remove Unused containers
+docker container prune 
+
+# Remove Unused Images
+docker image prune 
+
+# Events
+kubectl get events
+
+# Configration
+kubectl config view
+
+
+## Deployment 
+
+# Get Deployment
+kubectl get deployment
+
+# Create Deployment
+kubectl create deployment DEPLOYMENT_NAME --image=IMAGE_NAME
+
+# Edit Deployment
+kubectl edit deployment DEPLOYMENT_NAME --image=IMAGE_NAME
+
+# Delete Deployment
+kubectl delete deployment DEPLOYMENT_NAME
+
+# Command Prompt for Creating file
+# Create a file
+type nul> FILE_NAME
+
+# Copy & Edit the file
+copy con FILE_NAME
+
+# Save the file
+cntrl + z
+
+## Create Deplyoment using DEPLOYMENT File
+
+# Create & Update File in Deployment
+kubectl apply -f DEPLOYMENT_NAME.yml
+
+# Delete File in Deployment
+kubectl delete -f DEPLOYMENT_NAME.yml
+
+# Show all deployment in yaml
+kubectl get deployment -o FILE_TYPE
+
+# Show deployment in yaml
+kubectl get deployment DEPLOYMENT_NAME -o FILE_TYPE [YAML]
+
+# Save deployment in yaml
+kubectl get deployment DEPLOYMENT_NAME -o FILE_TYPE [YAML] > DEPLOYMENT_NAME_RESULT.yml
+
+
+## Services
+
+# Get Services
+kubectl get services
+kubectl get svc
+
+# Describe service
+kubectl describe service SERVICE_NAME
+
+# Deploy Service without yaml
+kubectl expose --port=CONTAINER_PORT deployment DEPLOYMENT_NAME --type=PORT_TYPE [NodePort, LoadBalancer etc..]
+
+# Deploy service
+kubectl apply -f SERVICE_NAME.yml
+
+
+## Replica Set
+
+# Get ReplicaSet
+kubectl get replicaset
+kubectl get rs
+
+## Pods
+
+# Get Podes
+kubectl get pods
+kubectl get pod
+kubectl get po
+
+# Get Podes with IP
+kubectl get pod -o wide
+
+## Pod & Service
+kubectl get pod,svc -n kube-system
+
+## Secret
+
+# Get Secret
+kubectl get secret
+
+# Create & Update Secret
+kubectl apply -f SECRET_NAME.yml
+
+
+## Config Map
+# Get
+kubectl get configMap
+
+# Create & Update Config Map
+kubectl apply -f CONFIGMAP_NAME.yml
+
+# Display Yaml
+kubectl get configmap -o yaml
+
+
+## Namespace
+
+# Get
+kubectl get namespace
+
+# Create 
+kubectl create namespace NAMESPACE
+
+# Create & Update 
+kubectl apply -f CONFIGMAP_NAME.yml --namespace=NAMESPACE
+
+# Namespace resource
+kubectl api-resources --namespaced=BOOLEAN
+
+# Get with namespace
+kubectl get namespace -n NAMESPACE
+
+
+## All Components
+
+# Create & Update all the Files
+kubectl apply -f ./
+
+
+# Delete all the Files
+kubectl delete -f ./
+
+
+## DEBUG
+
+# Logs
+kubectl logs POD_NAME
+
+# Get interactive terminal
+kubectl exec -it POD_NAME /bin/bash
+
+# Describe pod
+kubectl describe pod POD_NAME
+
+
+## KUBENS
+# Mac install
+brew install kubens
+
+# Mac change workspace
+kubens NAMESPACE
+
+## Install Ingress Controller
+k8s Nginx Ingress Controller
