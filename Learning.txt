@@ -1,15 +1,15 @@
-# Commands
+## Commands
 
-# Version
+## VERSION
 kubectl version
 
-# namesapce
+## NAMESPACE
 > GET / CREATE / DELETE / [EDIT - NOT ALLOWED]
 kubectl get namespaces [Or namespace]
 kubectl create namespace ckad-keyspace
 kubectl delete namespace delete-keyspace
 
-# Deployment
+## DEPLOYMENT
 > GET / CREATE / DELETE / EDIT 
 ** [without namespace --> Default namespace]
 > kubectl get deployments [Or deployment Or deploy]
@@ -22,3 +22,43 @@ kubectl edit deployment hello-deployment -n ckad-keyspace
 > DESCRIBE / SCALE [**SPECIAL**]
 kubectl describe deployment hello-deployment -n ckad-keyspace
 kubectl scale deployment hello-deployment -n ckad-keyspace --replicas=2
+
+## PODS
+> GET / CREATE - NOT ALLOWED / DELETE / EDIT 
+** [without namespace --> Default namespace]
+kubectl get pods [Or pod Or po]
+** [with namespace]
+kubectl get pods -n ckad-keyspace
+kubectl delete pods hello-deployment-6896f5bbfb-4sf84 -n ckad-keyspace
+kubectl edit pods hello-deployment-6896f5bbfb-m74zx -n ckad-keyspace
+
+> DESCRIBE / EXEC / LOGS [**SPECIAL**]
+kubectl describe pods hello-deployment-6896f5bbfb-m74zx -n ckad-keyspace
+kubectl exec -it hello-deployment-6896f5bbfb-m74zx -n ckad-keyspace sh [Or  bash] -- Or cqlsh [Cassandra]
+kubectl logs hello-deployment-6896f5bbfb-m74zx -n ckad-keyspace
+
+## REPLICA SET
+> GET / CREATE - NOT ALLOWED / DELETE / EDIT 
+** [without namespace --> Default namespace]
+kubectl get replicasets [Or replicaset Or rs]
+** [with namespace]
+kubectl get replicasets -n ckad-keyspace
+kubectl delete replicasets hello-deployment-6896f5bbfb -n ckad-keyspace
+kubectl edit replicasets hello-deployment-6896f5bbfb -n ckad-keyspace
+
+> DESCRIBE [**SPECIAL**]
+kubectl describe replicasets hello-deployment-6896f5bbfb -n ckad-keyspace
+
+## SERVICE
+> GET / CREATE / DELETE / EDIT 
+** [without namespace --> Default namespace]
+kubectl get services [Or service Or svc]
+** [with namespace]
+kubectl get service -n ckad-keyspace
+kubectl create service clusterip hello-service -n ckad-keyspace --clusterip="None" -o yaml --dry-run=client | kubectl set selector --local -f - 'environment=qa' -o yaml | kubectl create -f -
+kubectl delete service hello-service -n ckad-keyspace
+kubectl edit service hello-service -n ckad-keyspace
+
+> DESCRIBE [**SPECIAL**]
+kubectl describe service hello-service -n ckad-keyspace
+
