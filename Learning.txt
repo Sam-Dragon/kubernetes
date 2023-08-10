@@ -41,7 +41,7 @@ kubectl exec -it hello-deployment-6896f5bbfb-m74zx -n ckad-keyspace sh [Or  bash
 kubectl logs hello-deployment-6896f5bbfb-m74zx -n ckad-keyspace
 kubectl get pods -n ckad-keyspace -o wide 
 
-## REPLICA SET
+## REPLICA SET [SHOULD NOT BE USED, DEPLOYMENT IS TAKING CARE OF THIS]
 > GET / CREATE - NOT ALLOWED / DELETE / EDIT 
 ** [without namespace --> Default namespace]
 kubectl get replicasets [Or replicaset Or rs]
