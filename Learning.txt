@@ -66,3 +66,7 @@ kubectl edit service hello-service -n ckad-keyspace
 > DESCRIBE [**SPECIAL**]
 kubectl describe service hello-service -n ckad-keyspace
 
+## NODES
+
+## ALL
+kubectl get all -n ckad-keyspace
