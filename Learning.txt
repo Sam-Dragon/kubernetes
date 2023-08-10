@@ -5,7 +5,7 @@ kubectl version
 
 # namesapce
 > GET / CREATE / DELETE / [EDIT - NOT ALLOWED]
-kubectl get namespaces
+kubectl get namespaces [Or namespace]
 kubectl create namespace ckad-keyspace
 kubectl delete namespace delete-keyspace
 
@@ -22,7 +22,3 @@ kubectl edit deployment hello-deployment -n ckad-keyspace
 > DESCRIBE / SCALE [**SPECIAL**]
 kubectl describe deployment hello-deployment -n ckad-keyspace
 kubectl scale deployment hello-deployment -n ckad-keyspace --replicas=2
-
-kubectl get namespaces
-> Create
-kubectl create deployment hello-deployment --image= hello-world -n ckad-keyspace
