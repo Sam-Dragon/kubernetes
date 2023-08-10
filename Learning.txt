@@ -35,10 +35,11 @@ kubectl get pods -n ckad-keyspace
 kubectl delete pods hello-deployment-6896f5bbfb-4sf84 -n ckad-keyspace
 kubectl edit pods hello-deployment-6896f5bbfb-m74zx -n ckad-keyspace
 
-> DESCRIBE / EXEC / LOGS [**SPECIAL**]
+> DESCRIBE / EXEC / LOGS / WIDE [**SPECIAL**]
 kubectl describe pods hello-deployment-6896f5bbfb-m74zx -n ckad-keyspace
 kubectl exec -it hello-deployment-6896f5bbfb-m74zx -n ckad-keyspace sh [Or  bash] -- Or cqlsh [Cassandra]
 kubectl logs hello-deployment-6896f5bbfb-m74zx -n ckad-keyspace
+kubectl get pods -n ckad-keyspace -o wide 
 
 ## REPLICA SET
 > GET / CREATE - NOT ALLOWED / DELETE / EDIT 
