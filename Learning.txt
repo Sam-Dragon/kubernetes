@@ -1,5 +1,8 @@
 ## Commands
 
+## HELP
+kubectl -h
+
 ## VERSION
 kubectl version
 
