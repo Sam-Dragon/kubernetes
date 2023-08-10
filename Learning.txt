@@ -67,6 +67,15 @@ kubectl edit service hello-service -n ckad-keyspace
 kubectl describe service hello-service -n ckad-keyspace
 
 ## NODES
+** [without namespace --> Default namespace]
+kubectl get nodes [Or node Or no]
+** [with namespace]
+kubectl get nodes -n ckad-keyspace
+kubectl delete nodes rahul-aio-control-plane -n ckad-keyspace
+kubectl edit nodes rahul-aio-control-plane -n ckad-keyspace
+
+> DESCRIBE [**SPECIAL**]
+kubectl describe nodes rahul-aio-control-plane -n ckad-keyspace
 
 ## ALL
 kubectl get all -n ckad-keyspace
