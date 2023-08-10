@@ -78,5 +78,8 @@ kubectl edit nodes rahul-aio-control-plane -n ckad-keyspace
 kubectl describe nodes rahul-aio-control-plane -n ckad-keyspace
 kubectl get nodes -n ckad-keyspace -o wide
 
+## CONFIGMAP & SECRETS
+
+
 ## ALL
 kubectl get all -n ckad-keyspace
