@@ -43,6 +43,7 @@ kubectl edit pods hello-deployment-6896f5bbfb-m74zx -n ckad-keyspace
 kubectl describe pods hello-deployment-6896f5bbfb-m74zx -n ckad-keyspace
 kubectl exec -it hello-deployment-6896f5bbfb-m74zx -n ckad-keyspace sh [Or  bash] -- Or cqlsh [Cassandra]
 kubectl logs hello-deployment-6896f5bbfb-m74zx -n ckad-keyspace
+kubectl logs hello-deployment-6896f5bbfb-m74zx -n ckad-keyspace -f
 kubectl get pods -n ckad-keyspace -o wide 
 
 ## REPLICA SET [SHOULD NOT BE USED, DEPLOYMENT IS TAKING CARE OF THIS]
