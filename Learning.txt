@@ -7,6 +7,9 @@ kubectl -h
 kubectl api-resources
 kubectl api-versions
 
+## PROXY
+kubectl proxy &
+
 ## VERSION
 kubectl version
 
