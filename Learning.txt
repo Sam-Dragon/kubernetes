@@ -3,6 +3,9 @@
 ## HELP
 kubectl -h
 
+## API-RESOURCES **
+kubectl api-resources
+
 ## VERSION
 kubectl version
 
