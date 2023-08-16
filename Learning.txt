@@ -36,7 +36,7 @@ kubectl scale deployment hello-deployment -n ckad-keyspace --replicas=2
 kubectl get pods [Or pod Or po]
 ** [with namespace]
 kubectl get pods -n ckad-keyspace
-kubectl run nginx --image=nigix -n ckad-keyspace
+kubectl run nginx --image=nginx -n ckad-keyspace
 kubectl delete pods hello-deployment-6896f5bbfb-4sf84 -n ckad-keyspace
 kubectl edit pods hello-deployment-6896f5bbfb-m74zx -n ckad-keyspace
 
