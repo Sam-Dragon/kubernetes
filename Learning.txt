@@ -19,7 +19,7 @@ kubectl cluster-info
 ## NAMESPACE
 > GET / CREATE / DELETE / [EDIT - NOT ALLOWED]
 kubectl get namespaces [Or namespace]
-kubectl create namespace ckad-keyspace
+kubectl create namespace ckad-namespace
 kubectl create namespace delete-keyspace
 kubectl delete namespace delete-keyspace
 
@@ -28,34 +28,34 @@ kubectl delete namespace delete-keyspace
 ** [without namespace --> Default namespace]
 > kubectl get deployments [Or deployment Or deploy]
 ** [with namespace]
-kubectl get deployments -n ckad-keyspace
-kubectl create deployment hello-deployment --image=hello-world -n ckad-keyspace
-kubectl delete deploy hello-deployment -n ckad-keyspace
-kubectl edit deployment hello-deployment -n ckad-keyspace
+kubectl get deployments -n ckad-namespace
+kubectl create deployment hello-deployment --image=hello-world -n ckad-namespace
+kubectl delete deploy hello-deployment -n ckad-namespace
+kubectl edit deployment hello-deployment -n ckad-namespace
 
 > DESCRIBE / SCALE [**SPECIAL**]
-kubectl describe deployment hello-deployment -n ckad-keyspace
-kubectl scale deployment hello-deployment -n ckad-keyspace --replicas=2
+kubectl describe deployment hello-deployment -n ckad-namespace
+kubectl scale deployment hello-deployment -n ckad-namespace --replicas=2
 
 ## PODS
 > GET / CREATE / DELETE / EDIT 
 ** [without namespace --> Default namespace]
 kubectl get pods [Or pod Or po]
 ** [with namespace]
-kubectl get pods -n ckad-keyspace
-kubectl run nginx --image=nginx -n ckad-keyspace
-kubectl delete pods hello-deployment-6896f5bbfb-4sf84 -n ckad-keyspace
-kubectl edit pods hello-deployment-6896f5bbfb-m74zx -n ckad-keyspace
+kubectl get pods -n ckad-namespace
+kubectl run nginx --image=nginx -n ckad-namespace
+kubectl delete pods hello-deployment-6896f5bbfb-4sf84 -n ckad-namespace
+kubectl edit pods hello-deployment-6896f5bbfb-m74zx -n ckad-namespace
 
 > DESCRIBE / EXEC / LOGS / WIDE [**SPECIAL**]
-kubectl describe pods hello-deployment-6896f5bbfb-m74zx -n ckad-keyspace
-kubectl exec -it hello-deployment-6896f5bbfb-m74zx -n ckad-keyspace sh [Or  bash] -- Or cqlsh [Cassandra]
-kubectl logs hello-deployment-6896f5bbfb-m74zx -n ckad-keyspace
-kubectl get pods -n ckad-keyspace -o wide 
+kubectl describe pods hello-deployment-6896f5bbfb-m74zx -n ckad-namespace
+kubectl exec -it hello-deployment-6896f5bbfb-m74zx -n ckad-namespace sh [Or  bash] -- Or cqlsh [Cassandra]
+kubectl logs hello-deployment-6896f5bbfb-m74zx -n ckad-namespace
+kubectl get pods -n ckad-namespace -o wide 
 
 > WATCH
 kubectl get pods -w
-kubectl logs hello-deployment-6896f5bbfb-m74zx -n ckad-keyspace -f
+kubectl logs hello-deployment-6896f5bbfb-m74zx -n ckad-namespace -f
 
 > VERBOSE
 kubectl get po -n ckad-namespace -v=8
@@ -65,40 +65,40 @@ kubectl get po -n ckad-namespace -v=8
 ** [without namespace --> Default namespace]
 kubectl get replicasets [Or replicaset Or rs]
 ** [with namespace]
-kubectl get replicasets -n ckad-keyspace
-kubectl delete replicasets hello-deployment-6896f5bbfb -n ckad-keyspace
-kubectl edit replicasets hello-deployment-6896f5bbfb -n ckad-keyspace
+kubectl get replicasets -n ckad-namespace
+kubectl delete replicasets hello-deployment-6896f5bbfb -n ckad-namespace
+kubectl edit replicasets hello-deployment-6896f5bbfb -n ckad-namespace
 
 > DESCRIBE [**SPECIAL**]
-kubectl describe replicasets hello-deployment-6896f5bbfb -n ckad-keyspace
+kubectl describe replicasets hello-deployment-6896f5bbfb -n ckad-namespace
 
 ## SERVICE
 > GET / CREATE / DELETE / EDIT 
 ** [without namespace --> Default namespace]
 kubectl get services [Or service Or svc]
 ** [with namespace]
-kubectl get service -n ckad-keyspace
-kubectl create service clusterip hello-service -n ckad-keyspace --clusterip="None" -o yaml --dry-run=client | kubectl set selector --local -f - 'environment=qa' -o yaml | kubectl create -f -
-kubectl delete service hello-service -n ckad-keyspace
-kubectl edit service hello-service -n ckad-keyspace
+kubectl get service -n ckad-namespace
+kubectl create service clusterip hello-service -n ckad-namespace --clusterip="None" -o yaml --dry-run=client | kubectl set selector --local -f - 'environment=qa' -o yaml | kubectl create -f -
+kubectl delete service hello-service -n ckad-namespace
+kubectl edit service hello-service -n ckad-namespace
 
 > DESCRIBE [**SPECIAL**]
-kubectl describe service hello-service -n ckad-keyspace
+kubectl describe service hello-service -n ckad-namespace
 
 ## NODES
 ** [without namespace --> Default namespace]
 kubectl get nodes [Or node Or no]
 ** [with namespace]
-kubectl get nodes -n ckad-keyspace
-kubectl delete nodes rahul-aio-control-plane -n ckad-keyspace
-kubectl edit nodes rahul-aio-control-plane -n ckad-keyspace
+kubectl get nodes -n ckad-namespace
+kubectl delete nodes rahul-aio-control-plane -n ckad-namespace
+kubectl edit nodes rahul-aio-control-plane -n ckad-namespace
 
 > DESCRIBE [**SPECIAL**]
-kubectl describe nodes rahul-aio-control-plane -n ckad-keyspace
-kubectl get nodes -n ckad-keyspace -o wide
+kubectl describe nodes rahul-aio-control-plane -n ckad-namespace
+kubectl get nodes -n ckad-namespace -o wide
 
 ## CONFIGMAP & SECRETS
 
 
 ## ALL
-kubectl get all -n ckad-keyspace
+kubectl get all -n ckad-namespace
