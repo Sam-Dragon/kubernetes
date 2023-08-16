@@ -57,6 +57,9 @@ kubectl get pods -n ckad-keyspace -o wide
 kubectl get pods -w
 kubectl logs hello-deployment-6896f5bbfb-m74zx -n ckad-keyspace -f
 
+> VERBOSE
+kubectl get po -n ckad-namespace -v=8
+
 ## REPLICA SET [SHOULD NOT BE USED, DEPLOYMENT IS TAKING CARE OF THIS]
 > GET / CREATE - NOT ALLOWED / DELETE / EDIT 
 ** [without namespace --> Default namespace]
