@@ -18,7 +18,7 @@ kubectl config current-context
 kubectl config use-context my-cluster
 kubectl cluster-info
 
-## NAMESPAC
+## NAMESPACE
 > GET / CREATE / DELETE / [EDIT - NOT ALLOWED]
 kubectl get namespaces [Or namespace]
 kubectl create namespace ckad-namespace
@@ -64,6 +64,12 @@ kubectl logs hello-deployment-6896f5bbfb-m74zx -n ckad-namespace -f
 
 > VERBOSE
 kubectl get po -n ckad-namespace -v=8
+
+> CREATE WITH OPTIONS [PORT, ENV, LABELS]
+kubectl run nginx --image=nginx -n ckad-namespace --port=5701 --env="APP_VERSION=1.0" --labels="app=ckad,env=prod"
+
+> DRY RUN [TO Prevent component creation]
+kubectl run nginx --image=nginx -n ckad-namespace --dry-run=client
 
 ## REPLICA SET [SHOULD NOT BE USED, DEPLOYMENT IS TAKING CARE OF THIS]
 > GET / CREATE - NOT ALLOWED / DELETE / EDIT 
