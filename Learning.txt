@@ -18,9 +18,12 @@ kubectl config current-context
 kubectl config use-context my-cluster
 kubectl cluster-info
 
-## EXPORT & CREATE RESOURCE [YAML]
+## EXPORT & IMPORT RESOURCE [YAML]
 kubectl create namespace ckad-namespace --dry-run=client -o yaml > ckad-namespace.yaml
 kubectl create deployment hello-deployment --image=hello-world -n ckad-namespace --dry-run=client -o yaml > hello-deployment.yaml
+... ADD OTHER RESOURCES AS WELL
+
+kubectl create -f ckad-namespace.yaml,hello-deployment.yaml
 
 ## NAMESPACE
 > GET / CREATE / DELETE / [EDIT - NOT ALLOWED]
