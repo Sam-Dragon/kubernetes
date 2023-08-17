@@ -65,11 +65,14 @@ kubectl logs hello-deployment-6896f5bbfb-m74zx -n ckad-namespace -f
 > VERBOSE
 kubectl get po -n ckad-namespace -v=8
 
+> EXPORT
+kubectl run hello-world --image=hello-world -n ckad-namespace --dry-run=client -o yaml > hello-world.yaml
+
 > CREATE WITH OPTIONS [PORT, ENV, LABELS]
 kubectl run nginx --image=nginx -n ckad-namespace --port=5701 --env="APP_VERSION=1.0" --labels="app=ckad,env=prod"
 
 > DRY RUN [TO Prevent component creation]
-kubectl run nginx --image=nginx -n ckad-namespace --dry-run=client
+kubectl run hello-world --image=hello-world -n ckad-namespace --dry-run=client
 
 ## REPLICA SET [SHOULD NOT BE USED, DEPLOYMENT IS TAKING CARE OF THIS]
 > GET / CREATE - NOT ALLOWED / DELETE / EDIT 
