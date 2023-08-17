@@ -14,14 +14,19 @@ kubectl proxy &
 kubectl version
 
 ## CLUSTER
+kubectl config current-context
+kubectl config use-context my-cluster
 kubectl cluster-info
 
-## NAMESPACE
+## NAMESPAC
 > GET / CREATE / DELETE / [EDIT - NOT ALLOWED]
 kubectl get namespaces [Or namespace]
 kubectl create namespace ckad-namespace
 kubectl create namespace delete-keyspace
 kubectl delete namespace delete-keyspace
+
+> DEFAULT NAMESPACE FOR CONTEXT
+kubectl config set-context rahul-cluster --namespace=ckad-namespace
 
 ## DEPLOYMENT
 > GET / CREATE / DELETE / EDIT 
