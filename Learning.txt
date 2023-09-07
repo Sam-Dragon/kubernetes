@@ -32,7 +32,8 @@ kubectl create namespace ckad-namespace
 kubectl create namespace delete-keyspace
 kubectl delete namespace delete-keyspace
 
-> DEFAULT NAMESPACE FOR CONTEXT
+**> DEFAULT NAMESPACE FOR CONTEXT
+kubectl config current-context
 kubectl config set-context rahul-cluster --namespace=ckad-namespace
 
 ## DEPLOYMENT
