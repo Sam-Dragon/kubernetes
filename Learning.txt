@@ -35,6 +35,12 @@ kubectl create namespace ckad-namespace
 kubectl create namespace delete-keyspace
 kubectl delete namespace delete-keyspace
 
+# LABELS
+> CREATE / EDIT / GET / DELETE
+kubectl label ns ckad-namespace app=demo
+kubectl label ns ckad-namespace app=demo --overwrite
+kubectl get ns --show-labels
+
 **> DEFAULT NAMESPACE FOR CONTEXT
 kubectl config current-context
 kubectl config set-context rahul-cluster --namespace=ckad-namespace
