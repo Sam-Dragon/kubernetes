@@ -10,6 +10,9 @@ kubectl api-versions
 ## PROXY
 kubectl proxy &
 
+## API CALL
+kubectl get XXX -v=8
+
 ## VERSION
 kubectl version
 
