@@ -95,6 +95,7 @@ kubectl run hello-world --image=hello-world -n ckad-namespace --dry-run=client -
 
 > CREATE WITH OPTIONS [PORT, ENV, LABELS]
 kubectl run nginx --image=nginx -n ckad-namespace --port=5701 --env="APP_VERSION=1.0" --labels="app=ckad,env=prod"
+kubectl label pod ckad-namespace app=ckad2 --overwrite
 
 > DRY RUN [TO Prevent component creation]
 kubectl run hello-world --image=hello-world -n ckad-namespace --dry-run=client
