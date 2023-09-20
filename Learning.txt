@@ -73,6 +73,8 @@ kubectl run nginx --image=nginx -n ckad-namespace
 kubectl delete pods hello-deployment-6896f5bbfb-4sf84 -n ckad-namespace
 kubectl edit pods hello-deployment-6896f5bbfb-m74zx -n ckad-namespace
 kubectl delete pods hello-deployment-6896f5bbfb-4sf84 -n ckad-namespace --force --grace-period=0
+kubectl delete pods hello-deployment-6896f5bbfb-4sf84 -n ckad-namespace --selector='app-demo'
+kubectl delete pods hello-deployment-6896f5bbfb-4sf84 -n ckad-namespace -l app=demo
 
 > DESCRIBE / EXEC / LOGS / WIDE [**SPECIAL**]
 kubectl describe pods hello-deployment-6896f5bbfb-m74zx -n ckad-namespace
