@@ -98,6 +98,11 @@ kubectl run nginx --image=nginx -n ckad-namespace --port=5701 --env="APP_VERSION
 > DRY RUN [TO Prevent component creation]
 kubectl run hello-world --image=hello-world -n ckad-namespace --dry-run=client
 
+> Additional
+kubectl run nginx --image=nginx -n ckad-namespace --expose=false 
+kubectl run nginx --image=nginx -n ckad-namespace --serviceaccount='' 
+kubectl run nginx --image=nginx -n ckad-namespace --annotations=[] 
+
 ## REPLICA SET [SHOULD NOT BE USED, DEPLOYMENT IS TAKING CARE OF THIS]
 > GET / CREATE - NOT ALLOWED / DELETE / EDIT 
 ** [without namespace --> Default namespace]
