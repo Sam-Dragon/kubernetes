@@ -43,7 +43,7 @@ kubectl label ns ckad-namespace app=demo --overwrite
 kubectl get ns --show-labels
 kubectl get ns --selector='app=demo'
 kubectl get ns --label-columns=app,tier
-kubectl label ns ckad-namespace=app-
+kubectl label ns ckad-namespace app-
 
 **> DEFAULT NAMESPACE FOR CONTEXT
 kubectl config current-context
