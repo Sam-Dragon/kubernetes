@@ -5,6 +5,7 @@ kubectl -h
 
 ## API-RESOURCES **
 kubectl api-resources
+**> kubectl api-resources -o wide
 kubectl api-versions
 
 ## PROXY
