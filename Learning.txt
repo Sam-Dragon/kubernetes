@@ -41,6 +41,8 @@ kubectl delete namespace delete-keyspace
 kubectl label ns ckad-namespace app=demo
 kubectl label ns ckad-namespace app=demo --overwrite
 kubectl get ns --show-labels
+kubectl get ns --selector='app=demo'
+kubectl get ns --label-columns=app,tier
 
 **> DEFAULT NAMESPACE FOR CONTEXT
 kubectl config current-context
