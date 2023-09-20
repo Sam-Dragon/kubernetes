@@ -49,8 +49,6 @@ kubectl label ns ckad-namespace app-
 kubectl config current-context
 kubectl config set-context rahul-cluster --namespace=ckad-namespace
 
-kubectl config set-context ${kubectl get current-context} --namespace=ckad-namespace
-
 ## DEPLOYMENT
 > GET / CREATE / DELETE / EDIT 
 ** [without namespace --> Default namespace]
