@@ -81,6 +81,7 @@ kubectl describe pods hello-deployment-6896f5bbfb-m74zx -n ckad-namespace
 kubectl exec -it hello-deployment-6896f5bbfb-m74zx -n ckad-namespace sh [Or  bash] -- Or cqlsh [Cassandra]
 kubectl logs hello-deployment-6896f5bbfb-m74zx -n ckad-namespace
 kubectl get pods -n ckad-namespace -o wide 
+kubectl label pod nginx ckad-namespace app-
 
 > WATCH
 kubectl get pods -w
