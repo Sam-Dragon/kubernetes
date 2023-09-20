@@ -68,6 +68,7 @@ kubectl scale deployment hello-deployment -n ckad-namespace --replicas=2
 ** [without namespace --> Default namespace]
 kubectl get pods [Or pod Or po]
 ** [with namespace]
+kubectl get pods -A (OR) kubectl get pods --all-namespaces
 kubectl get pods -n ckad-namespace
 kubectl run nginx --image=nginx -n ckad-namespace
 kubectl delete pods hello-deployment-6896f5bbfb-4sf84 -n ckad-namespace
