@@ -16,11 +16,20 @@ kubectl get XXX -v=8
 
 ## VERSION
 kubectl version
-
-## CLUSTER
-kubectl config current-context
-kubectl config use-context my-cluster
 kubectl cluster-info
+
+## CONFIG
+kubectl config get-contexts
+kubectl config get-contexts <context>
+kubectl config set-context <context>
+kubectl config set-context ckad-context --cluster=<cluster> --user=<user> --namespace=<namespace>
+kubectl config delete-context <context>
+** kubectl config current-context
+kubectl config use-context my-cluster
+
+
+## CLUSTERS
+kubectl config get-clusters
 
 ## EXPORT & IMPORT RESOURCE [YAML]
 kubectl create namespace ckad-namespace --dry-run=client -o yaml > ckad-namespace.yaml
