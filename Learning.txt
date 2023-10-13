@@ -118,6 +118,9 @@ kubectl get pod --selector='app=demo' -n ckad-namespace (OR) kubectl get pod -l 
 > DRY RUN [TO Prevent component creation]
 kubectl run hello-world --image=hello-world -n ckad-namespace --dry-run=client
 
+> Update Pod Image
+kubectl set image pod/<POD_NAME> <CONTAINER>=<IMAGE> -n ckad
+
 > Additional
 kubectl run nginx --image=nginx -n ckad-namespace --expose=false 
 kubectl run nginx --image=nginx -n ckad-namespace --serviceaccount='' 
