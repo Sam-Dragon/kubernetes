@@ -87,7 +87,7 @@ kubectl delete pods hello-deployment-6896f5bbfb-4sf84 -n ckad-namespace --select
 
 # Yaml
 kubectl -n ckad run hello-world --image=hello-world --dry-run=client -o yaml > hello-world.yaml
-kubectl create -f hello-world.yaml
+kubectl create -f hello-world.yaml (OR) kubectl apply -f hello-world.yaml
 kubectl edit -f hello-world.yaml -n ckad
 kubectl delete -f hello-world.yaml
 
