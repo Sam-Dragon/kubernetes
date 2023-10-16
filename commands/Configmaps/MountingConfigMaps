@@ -2,6 +2,7 @@
 
 kubectl run file-cm-po --image=nginx -n ckad
 
+kubectl edit po file-cm-po -n ckad
 ...
 spec:
   containers:
@@ -14,6 +15,7 @@ spec:
 
 kubectl run env-cm-po --image=nginx -n ckad
 
+kubectl edit po env-cm-po -n ckad
 ...
 spec:
   containers:
@@ -29,6 +31,7 @@ spec:
 
 kubectl run volume-cm-po --image=nginx -n ckad
 
+kubectl edit po volume-cm-po -n ckad
 ...
 spec:
   containers:
