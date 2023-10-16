@@ -26,7 +26,10 @@ kubectl edit configmap env-cm -n ckad
 kubectl get configmap -n ckad
 
 > Get specific namespace
-kubectl get configmap env-cm -n ckad
+> Yaml
+kubectl get configmap env-cm -n ckad -o yaml
+> Json 
+kubectl get configmap env-cm -n ckad -o json
 
 # Delete
 kubectl delete configmap delete-cm -n ckad
