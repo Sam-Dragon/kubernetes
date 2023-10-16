@@ -1,1 +1,22 @@
+# Description
+namespace shortform is 'ns'
+
+# Create
+kubectl create namespace ckad
+kubectl create namespace delete
+
+# Edit
+kubectl edit namespace ckad
+
+# Get
+kubectl get namespace --all-namespace (OR) kubectl get namespace -A
+
+> Get specific namespace
+kubectl get namespace ckad
+
+# Delete
+kubectl delete namespace delete
+
+# Describe
+kubectl describe namespace ckad
 
