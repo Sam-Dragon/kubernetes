@@ -47,5 +47,5 @@ kubectl create -f config.yaml (OR) kubectl apply -f config.yaml
 
 > JSON
 
-kubectl create configmap create-cm -n ckad --dry-run=client -o json > config-json.yaml
+kubectl create configmap create-json-cm -n ckad --dry-run=client -o json > config-json.yaml
 kubectl create -f config-json.yaml (OR) kubectl apply -f config-json.yaml
