@@ -48,7 +48,7 @@ spec:
   containers:
     ...
     volumeMounts:
-    - mountPath: /home/smartphyuser
+    - mountPath: /home
       name: mount-configmaps-volume
 volumes:
 - configMap:
