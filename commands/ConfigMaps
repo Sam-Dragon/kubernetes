@@ -1,1 +1,45 @@
+# Description
+configmaps shortform is 'cm'
 
+# Create
+kubectl create configmaps delete-cm -n ckad
+
+> Create with Env variables
+kubectl create configmaps env-cm --from-literal=color=red -n ckad
+
+> Create with file
+echo -e "key=rahul\nvalue=sheth" > config.properties
+kubectl create configmaps file-cm --from-file=config.properties -n ckad
+
+> Create with file with comments
+echo -e "key=rahul\n#This is comment\nvalue=sheth" > config.env
+kubectl create configmaps env-file-cm --from-env-file=config.env -n ckad
+
+> Create with file with key
+echo -e "key=rahul\nvalue=sheth" > config.txt
+kubectl create configmaps file-as-key-cm --from-file=special=config.txt -n ckad
+
+# Edit
+kubectl edit configmaps env-cm -n ckad
+
+# Get
+kubectl get configmaps -n ckad
+
+> Get specific namespace
+kubectl get configmaps env-cm -n ckad
+
+# Delete
+kubectl delete configmaps delete-cm -n ckad
+
+# Describe
+kubectl describe configmaps env-cm -n ckad
+
+# Export 
+> YAML
+kubectl create configmaps create-cm -n ckad --dry-run=client -o yaml > config.yaml
+kubectl create -f config.yaml (OR) kubectl apply -f config.yaml
+
+> JSON
+
+kubectl create configmaps create-cm -n ckad --dry-run=client -o json > config-json.yaml
+kubectl create -f config-json.yaml (OR) kubectl apply -f config-json.yaml
