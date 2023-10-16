@@ -2,14 +2,18 @@
 
 kubectl run file-cm-po --image=nginx -n ckad
 
-kubectl edit po file-cm-po -n ckad
-...
-spec:
-  containers:
-  - envFrom:
+kubectl get po file-cm-po -n ckad -o yaml > file-cm-po.yaml
+kubectl delete po file-cm-po -n ckad
+
+vi file-cm-po.yaml
+  ...
+  spec:
+    containers:
+    envFrom:
     - configMapRef:
         name: file-cm
-...
+  ...
+kubectl apply -f file-cm-po.yaml
 
 # Read configmaps for specific environment variable
 
