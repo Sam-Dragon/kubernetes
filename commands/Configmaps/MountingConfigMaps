@@ -1,5 +1,40 @@
 # Read configmaps as file reading all environment variables
+...
+spec:
+  containers:
+  - envFrom:
+    - configMapRef:
+        name: ckad-configmap
+...
 
 # Read configmaps for specific environment variable
+...
+spec:
+  containers:
+  - env:
+    - name: COLOR_KEY
+      valueFrom:
+        configMapKeyRef:
+          key: color
+          name: ckad-configmap
+...
 
 # Read configmaps as volumes
+...
+spec:
+  containers:
+  - image: nginx
+    imagePullPolicy: Always
+    name: nginx
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /home/smartphyuser
+      name: config-volume
+volumes:
+- configMap:
+    defaultMode: 420
+    name: ckad-configmap
+  name: config-volume
+...
