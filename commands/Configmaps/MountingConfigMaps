@@ -1,1 +1,5 @@
+# Read configmaps as file reading all environment variables
 
+# Read configmaps for specific environment variable
+
+# Read configmaps as volumes
