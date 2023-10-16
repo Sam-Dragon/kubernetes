@@ -6,36 +6,43 @@ kubectl get po file-cm-po -n ckad -o yaml > file-cm-po.yaml
 kubectl delete po file-cm-po -n ckad
 
 vi file-cm-po.yaml
-  ...
-  spec:
-    containers:
-    envFrom:
-    - configMapRef:
-        name: file-cm
-  ...
+...
+spec:
+  containers:
+  envFrom:
+  - configMapRef:
+      name: file-cm
+...
 kubectl apply -f file-cm-po.yaml
 
 # Read configmaps for specific environment variable
 
 kubectl run env-cm-po --image=nginx -n ckad
 
-kubectl edit po env-cm-po -n ckad
+kubectl get po env-cm-po -n ckad -o yaml > env-cm-po.yaml
+kubectl delete po env-cm-po -n ckad
+
+vi env-cm-po.yaml
 ...
 spec:
   containers:
-  - env:
-    - name: COLOR_KEY
-      valueFrom:
-        configMapKeyRef:
-          key: color
-          name: env-cm
+  env:
+  - name: COLOR_KEY
+    valueFrom:
+      configMapKeyRef:
+        key: color
+        name: env-cm
 ...
+kubectl apply -f env-cm-po.yaml
 
 # Read configmaps as volumes
 
 kubectl run volume-cm-po --image=nginx -n ckad
 
-kubectl edit po volume-cm-po -n ckad
+kubectl get po volume-cm-po -n ckad -o yaml > volume-cm-po.yaml
+kubectl delete po volume-cm-po -n ckad
+
+vi volume-cm-po.yaml
 ...
 spec:
   containers:
@@ -49,3 +56,4 @@ volumes:
     name: file-as-key-cm
   name: mount-configmaps-volume
 ...
+kubectl apply -f volume-cm-po.yaml
