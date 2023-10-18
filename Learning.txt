@@ -18,14 +18,6 @@ kubectl get XXX -v=8
 kubectl version
 kubectl cluster-info
 
-## CONFIG
-kubectl config get-contexts
-kubectl config get-contexts <context>
-kubectl config set-context <context>
-kubectl config set-context ckad-context --cluster=<cluster> --user=<user> --namespace=<namespace>
-kubectl config delete-context <context>
-** kubectl config current-context
-kubectl config use-context my-cluster
 
 
 ## CLUSTERS
