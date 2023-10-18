@@ -38,22 +38,6 @@ kubectl create deployment hello-deployment --image=hello-world -n ckad-namespace
 
 kubectl create -f ckad-namespace.yaml,hello-deployment.yaml
 
-## NAMESPACE
-> GET / CREATE / DELETE / [EDIT - NOT ALLOWED]
-kubectl get namespaces [Or namespace]
-kubectl create namespace ckad-namespace
-kubectl create namespace delete-keyspace
-kubectl delete namespace delete-keyspace
-
-# LABELS
-> CREATE / EDIT / GET / DELETE
-kubectl label ns ckad-namespace app=demo
-kubectl label ns ckad-namespace app=demo --overwrite
-kubectl get ns --show-labels
-kubectl get ns --selector='app=demo'
-kubectl get ns --label-columns=app,tier
-kubectl label ns ckad-namespace app-
-
 **> DEFAULT NAMESPACE FOR CONTEXT
 kubectl config current-context
 kubectl config set-context rahul-cluster --namespace=ckad-namespace
