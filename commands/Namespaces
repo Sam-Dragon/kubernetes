@@ -20,3 +20,20 @@ kubectl delete namespace delete
 # Describe
 kubectl describe namespace ckad
 
+# LABELS
+
+# Create
+kubectl label ns ckad app=demo
+
+# Edit
+kubectl label ns ckad app=demo --overwrite
+
+# Get
+kubectl get ns --show-labels
+kubectl get ns --selector='app=demo'
+kubectl get ns --label-columns=app,tier
+
+# Delete
+kubectl label ns ckad app-
+
+Note: Pod once running cannot be edited
