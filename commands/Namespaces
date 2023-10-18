@@ -20,10 +20,11 @@ kubectl delete namespace delete
 # Describe
 kubectl describe namespace ckad
 
-# Export
+# Export 
 kubectl create namespace ckad --dry-run=client -o yaml > ckad-create-namespace.yaml
 kubectl get namespace ckad -o yaml > ckad-get-namespace.yaml
 
+# Import
 kubectl apply -f ckad-create-namespace.yaml ckad-get-namespace.yaml
 
 ## LABELS
