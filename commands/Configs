@@ -7,7 +7,7 @@ kubectl config set-context <context>
 kubectl config set-context ckad-context --cluster=<cluster> --user=<user> --namespace=<namespace>
 
 # Edit
-kubectl config use-context my-cluster
+kubectl config use-context ckad-context
 
 # Get
 kubectl config get-contexts
