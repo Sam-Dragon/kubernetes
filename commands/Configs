@@ -1,1 +1,24 @@
+# CONFIG
+
+# Create
+kubectl config set-context <context>
+
+> Create with params
+kubectl config set-context ckad-context --cluster=<cluster> --user=<user> --namespace=<namespace>
+
+# Edit
+kubectl config use-context my-cluster
+
+# Get
+kubectl config get-contexts
+
+> Get Specific Context
+kubectl config get-contexts <context>
+
+> Get Current Context
+** kubectl config current-context
+
+# Delete
+kubectl config delete-context <context>
+
 
