@@ -1,7 +1,7 @@
 # CONFIG
 
 # Create
-kubectl config set-context <context>
+kubectl config set-context ckad-context
 
 > Create with params
 kubectl config set-context ckad-context --cluster=<cluster> --user=<user> --namespace=<namespace>
@@ -13,12 +13,12 @@ kubectl config use-context ckad-context
 kubectl config get-contexts
 
 > Get Specific Context
-kubectl config get-contexts <context>
+kubectl config get-contexts ckad-context
 
 > Get Current Context
 ** kubectl config current-context
 
 # Delete
-kubectl config delete-context <context>
+kubectl config delete-context ckad-context
 
 
