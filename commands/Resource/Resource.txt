@@ -1,2 +1,5 @@
 # Description
 resourcequotas shortform is 'quota'
+
+# Request & Limits for pod
+kubectl pod nginx --image=nginx --restart=Never --requests='cpu=250m,memory=64Mi' limits='cpu=500m,memory=128Mi'
