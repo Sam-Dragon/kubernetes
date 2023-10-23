@@ -30,10 +30,6 @@ kubectl create deployment hello-deployment --image=hello-world -n ckad-namespace
 
 kubectl create -f ckad-namespace.yaml,hello-deployment.yaml
 
-**> DEFAULT NAMESPACE FOR CONTEXT
-kubectl config current-context
-kubectl config set-context rahul-cluster --namespace=ckad-namespace
-
 ## DEPLOYMENT
 > GET / CREATE / DELETE / EDIT 
 ** [without namespace --> Default namespace]
