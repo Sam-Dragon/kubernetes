@@ -1,1 +1,53 @@
+## PODS
+> GET / CREATE / DELETE / EDIT 
+** [without namespace --> Default namespace]
+kubectl get pods [Or pod Or po]
+** [with namespace]
+kubectl get pods -A (OR) kubectl get pods --all-namespaces
+kubectl get pods -n ckad-namespace
+kubectl run nginx --image=nginx -n ckad-namespace
+kubectl delete pods hello-deployment-6896f5bbfb-4sf84 -n ckad-namespace
+kubectl edit pods hello-deployment-6896f5bbfb-m74zx -n ckad-namespace
+kubectl delete pods hello-deployment-6896f5bbfb-4sf84 -n ckad-namespace --force --grace-period=0
+kubectl delete pods hello-deployment-6896f5bbfb-4sf84 -n ckad-namespace --selector='app-demo' (OR) kubectl delete pods hello-deployment-6896f5bbfb-4sf84 -n ckad-namespace -l app=demo
 
+# Yaml
+kubectl -n ckad run hello-world --image=hello-world --dry-run=client -o yaml > hello-world.yaml
+kubectl create -f hello-world.yaml (OR) kubectl apply -f hello-world.yaml
+kubectl edit -f hello-world.yaml -n ckad
+kubectl delete -f hello-world.yaml
+
+> DESCRIBE / EXEC / LOGS / WIDE [**SPECIAL**]
+kubectl describe pods hello-deployment-6896f5bbfb-m74zx -n ckad-namespace
+kubectl exec -it hello-deployment-6896f5bbfb-m74zx -n ckad-namespace sh [Or  bash] -- Or cqlsh [Cassandra]
+kubectl logs hello-deployment-6896f5bbfb-m74zx -n ckad-namespace
+kubectl get pods -n ckad-namespace -o wide 
+kubectl label pod nginx ckad-namespace app-
+
+> WATCH
+kubectl get pods -w
+kubectl logs hello-deployment-6896f5bbfb-m74zx -n ckad-namespace -f
+
+> VERBOSE
+kubectl get po -n ckad-namespace -v=8
+
+> EXPORT
+kubectl run hello-world --image=hello-world -n ckad-namespace --dry-run=client -o yaml > hello-world.yaml
+
+> CREATE WITH OPTIONS [PORT, ENV, LABELS]
+kubectl run nginx --image=nginx -n ckad-namespace --port=5701 --env="APP_VERSION=1.0" --labels="app=ckad,env=prod"
+kubectl label pod -n ckad-namespace nginx app=ckad2 --overwrite
+kubectl get pod --show-labels
+kubectl get pod --label-columns=app,tier
+kubectl get pod --selector='app=demo' -n ckad-namespace (OR) kubectl get pod -l app=ckad2 -n ckad-namespace
+
+> DRY RUN [TO Prevent component creation]
+kubectl run hello-world --image=hello-world -n ckad-namespace --dry-run=client
+
+> Update Pod Image
+kubectl set image pod/<POD_NAME> <CONTAINER>=<IMAGE> -n ckad
+
+> Additional
+kubectl run nginx --image=nginx -n ckad-namespace --expose=false 
+kubectl run nginx --image=nginx -n ckad-namespace --serviceaccount='' 
+kubectl run nginx --image=nginx -n ckad-namespace --annotations=[] 
