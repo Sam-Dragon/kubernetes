@@ -43,6 +43,14 @@ kubectl get ns --label-columns=app,tier
 # Delete
 kubectl label ns ckad app-
 
+# Setting up namespace for clustor
+> Pick the clustor & set the default namespace 
+kubectl config current-context
+kubectl config set-context rahul-cluster --namespace=ckad-namespace
+
+**> Directly set the current clustor with required keyspace
+kubectl config set-context --current --namespace=ckad
+
 Note: Pod once running cannot be edited
 
 > POD ACCESS
