@@ -51,9 +51,8 @@ kubectl config set-context rahul-cluster --namespace=ckad-namespace
 **> Directly set the current clustor with required keyspace
 kubectl config set-context --current --namespace=ckad
 
-Note: Pod once running cannot be edited
-
 > POD ACCESS
-kubectl get pod -n ckad (OR) kubectl get pod --namespace ckad
-
 NOTE: Refer Pods.yaml for CRUD operations
+
+Note: Not all objects are namespaced, use the below command
+kubectl api-resources --namespaced=false
