@@ -44,3 +44,6 @@ kubectl get ns --label-columns=app,tier
 kubectl label ns ckad app-
 
 Note: Pod once running cannot be edited
+
+> POD ACCESS
+kubectl get pod -n ckad (OR) kubectl get pod --namespace ckad
