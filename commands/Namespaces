@@ -47,3 +47,5 @@ Note: Pod once running cannot be edited
 
 > POD ACCESS
 kubectl get pod -n ckad (OR) kubectl get pod --namespace ckad
+
+NOTE: Refer Pods.yaml for CRUD operations
