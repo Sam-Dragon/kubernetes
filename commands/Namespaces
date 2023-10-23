@@ -1,5 +1,5 @@
 # Description
-namespace shortform is 'ns'
+namespaces (OR) namespace shortform is 'ns'
 
 # Create
 kubectl create namespace ckad
