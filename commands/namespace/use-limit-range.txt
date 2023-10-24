@@ -4,6 +4,9 @@
   2. Minimum memory and cpu
   3. Maximum memory and cpu
 
+> limit-range.yaml
+vi limit-range.yaml
+---
 apiVersion: v1
 kind: LimitRange
 metadata:
@@ -27,3 +30,7 @@ spec:
     min:
       cpu: "200m" 
     type: Container
+---
+> copy and save
+kubectl create -f limit-range.yaml (OR) kubectl apply -f limit-range.yaml
+
