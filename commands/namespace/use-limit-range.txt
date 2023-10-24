@@ -34,3 +34,5 @@ spec:
 > copy and save
 kubectl create -f limit-range.yaml (OR) kubectl apply -f limit-range.yaml
 
+# Pod
+kubectl run po nginx --image=nginx -n ckad 
