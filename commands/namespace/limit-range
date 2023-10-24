@@ -2,50 +2,24 @@
 limitranges shortform is 'limit'
 
 # Create
-kubectl create limitranges delete-lr -n ckad
-
-> Create with Env variables
-kubectl create limitranges env-lr --from-literal=color=red -n ckad
-
-> Create with file
-echo -e "key=rahul\nvalue=sheth" > config.properties
-kubectl create limitranges file-lr --from-file=config.properties -n ckad
-
-> Create with file with comments
-echo -e "key=rahul\n#This is comment\nvalue=sheth" > config.env
-kubectl create limitranges env-file-lr --from-env-file=config.env -n ckad
-
-> Create with file with key
-echo -e "key=rahul\nvalue=sheth" > config.txt
-kubectl create limitranges file-as-key-lr --from-file=special=config.txt -n ckad
+kubectl create -f limit-range.yaml 
 
 # Edit
-kubectl edit limitranges env-lr -n ckad
+kubectl edit limitranges default-max-minlimit-range -n ckad
 
 # Get
 kubectl get limitranges -n ckad
 
-> Get specific limitrangess
-> Yaml
-kubectl get limitranges env-lr -n ckad -o yaml
-> Json 
-kubectl get limitranges env-lr -n ckad -o json
-
-> Get all limitrangess
-kubectl get limitranges -n ckad -o yaml
+> Get all limitranges
+kubectl get limitranges -n ckad
 
 # Delete
-kubectl delete limitranges delete-lr -n ckad
+kubectl delete limitranges default-max-minlimit-range -n ckad
 
 # Describe
-kubectl describe limitranges env-lr -n ckad
+kubectl describe limitranges default-max-minlimit-range -n ckad
 
 # Export 
 > YAML
-kubectl create limitranges create-lr -n ckad --dry-run=client -o yaml > config.yaml
-kubectl create -f config.yaml (OR) kubectl apply -f config.yaml
-
-> JSON
-
-kubectl create limitranges create-json-lr -n ckad --dry-run=client -o json > config-json.yaml
-kubectl create -f config-json.yaml (OR) kubectl apply -f config-json.yaml
+kubectl get limitranges create-lr -n ckad --dry-run=client -o yaml > limit-range.yaml
+kubectl create -f config.yaml (OR) kubectl apply -f limit-range.yaml
