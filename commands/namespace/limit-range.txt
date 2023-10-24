@@ -26,5 +26,4 @@ spec:
       cpu: "800m"
     min:
       cpu: "200m" 
-   type: Container
-
+    type: Container
