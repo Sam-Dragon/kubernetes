@@ -27,6 +27,3 @@ spec:
     min:
       cpu: "200m" 
     type: Container
-
-# Create
-kubectl create LimitRange
