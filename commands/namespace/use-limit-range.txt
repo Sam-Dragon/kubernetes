@@ -27,7 +27,7 @@ spec:
 kubectl create -f mem-limit-range.yaml (OR) kubectl apply -f mem-limit-range.yaml
 
 # Pod
-kubectl run po nginx-mem --image=nginx -n ckad 
+kubectl run nginx-mem --image=nginx -n ckad 
 
 
 > cpu-limit-range.yaml
@@ -53,4 +53,4 @@ spec:
 kubectl create -f cpu-limit-range.yaml (OR) kubectl apply -f cpu-limit-range.yaml
 
 # Pod
-kubectl run po nginx-cpu --image=nginx -n ckad 
+kubectl run nginx-cpu --image=nginx -n ckad 
