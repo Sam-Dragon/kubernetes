@@ -16,3 +16,25 @@ kubectl create -f object-quota.yaml -n ckad (OR) kubectl apply -f object-quota.y
 
 # Pod
 kubectl run nginx-object-quota --image=nginx -n ckad -o yaml --dry-run=client > nginx-object-quota.yaml
+
+> volume-claim.yaml
+vi volume-claim.yaml
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: volume-claim
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 3Gi
+---
+> copy and save
+kubectl create -f volume-claim.yaml -n ckad (OR) kubectl apply -f volume-claim.yaml -n ckad
+
+# Pod
+kubectl run nginx-volume-claim --image=nginx -n ckad -o yaml --dry-run=client > nginx-volume-claim.yaml
+
