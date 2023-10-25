@@ -21,3 +21,6 @@ spec:
 ---
 > copy and save
 kubectl create -f resource-quota.yaml -n ckad (OR) kubectl apply -f resource-quota.yaml -n ckad
+
+# Pod
+kubectl run nginx-quota --image=nginx -n ckad 
