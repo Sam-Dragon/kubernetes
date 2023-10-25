@@ -5,7 +5,7 @@ limitranges shortform is 'limit'
 kubectl create -f limit-range.yaml 
 
 # Edit
-kubectl edit limitranges default-max-minlimit-range -n ckad
+kubectl edit limitranges cpu-imit-range -n ckad
 
 # Get
 kubectl get limitranges -n ckad
@@ -14,10 +14,10 @@ kubectl get limitranges -n ckad
 kubectl get limitranges -n ckad
 
 # Delete
-kubectl delete limitranges default-max-minlimit-range -n ckad
+kubectl delete limitranges cpu-imit-range -n ckad
 
 # Describe
-kubectl describe limitranges default-max-minlimit-range -n ckad
+kubectl describe limitranges cpu-imit-range -n ckad
 
 # Export 
 > YAML
