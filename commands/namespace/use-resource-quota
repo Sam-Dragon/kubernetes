@@ -12,15 +12,11 @@ kind: ResourceQuota
 metadata:
   name: resource-quota
 spec:
-  limits:
-  - default:
-      memory: 512Mi
-    defaultRequest:
-      memory: 256Mi
-    max:
-      memory: 1Gi
-    min:
-      memory: 50Mi
+  hard:
+    requests.cpu: "1"
+    requests.memory: 25Mi
+    limits.cpu: "2"
+    limits.memory: 256Mi
     type: Container
 ---
 > copy and save
