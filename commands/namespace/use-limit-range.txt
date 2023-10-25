@@ -4,6 +4,8 @@
   2. Minimum memory and cpu
   3. Maximum memory and cpu
 
+Note: LimitRange is flexible in terms of specifying the memory and cpu for the pods unlike resource quota
+
 > mem-imit-range.yaml
 vi mem-limit-range.yaml
 ---
