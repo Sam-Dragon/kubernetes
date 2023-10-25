@@ -10,6 +10,7 @@ spec:
     persistentvolumeclaims: "1"
     services.loadbalancers: "2"
     services.nodeports: "0"
+    pods: "2"
 ---
 > copy and save
 kubectl create -f object-quota.yaml -n ckad (OR) kubectl apply -f object-quota.yaml -n ckad
