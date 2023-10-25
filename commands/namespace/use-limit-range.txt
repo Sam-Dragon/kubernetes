@@ -24,7 +24,7 @@ spec:
     type: Container
 ---
 > copy and save
-kubectl create -f mem-limit-range.yaml (OR) kubectl apply -f mem-limit-range.yaml
+kubectl create -f mem-limit-range.yaml -n ckad (OR) kubectl apply -f mem-limit-range.yaml -n ckad
 
 # Pod
 kubectl run nginx-mem --image=nginx -n ckad 
@@ -50,7 +50,7 @@ spec:
     type: Container
 ---
 > copy and save
-kubectl create -f cpu-limit-range.yaml (OR) kubectl apply -f cpu-limit-range.yaml
+kubectl create -f cpu-limit-range.yaml -n ckad (OR) kubectl apply -f cpu-limit-range.yaml -n ckad
 
 # Pod
 kubectl run nginx-cpu --image=nginx -n ckad 
