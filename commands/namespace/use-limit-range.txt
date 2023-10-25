@@ -5,26 +5,44 @@
   3. Maximum memory and cpu
 
 > limit-range.yaml
-vi limit-range.yaml
+vi mem-limit-range.yaml
 ---
 apiVersion: v1
 kind: LimitRange
 metadata:
-  name: default-max-minlimit-range
+  name: mem-limit-range
 spec:
   limits:
   - default:
       memory: 512Mi
     defaultRequest:
       memory: 256Mi
-    default:
-      cpu: 800m
-    defaultRequest:
-      cpu: 800m
     max:
       memory: 1Gi
     min:
       memory: 500Mi
+    type: Container
+---
+> copy and save
+kubectl create -f mem-limit-range.yaml (OR) kubectl apply -f mem-limit-range.yaml
+
+# Pod
+kubectl run po nginx-mem --image=nginx -n ckad 
+
+
+> cpu-limit-range.yaml
+vi cpu-limit-range.yaml
+---
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: cpu-limit-range
+spec:
+  limits:
+  - default:
+      cpu: 800m
+    defaultRequest:
+      cpu: 800m
     max:
       cpu: "800m"
     min:
@@ -32,7 +50,7 @@ spec:
     type: Container
 ---
 > copy and save
-kubectl create -f limit-range.yaml (OR) kubectl apply -f limit-range.yaml
+kubectl create -f cpu-limit-range.yaml (OR) kubectl apply -f cpu-limit-range.yaml
 
 # Pod
-kubectl run po nginx --image=nginx -n ckad 
+kubectl run po nginx-cpu --image=nginx -n ckad 
