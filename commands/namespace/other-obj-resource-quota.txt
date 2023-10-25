@@ -1,0 +1,18 @@
+> object-quota.yaml
+vi object-quota.yaml
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: object-quota
+spec:
+  hard:
+    persistentvolumeclaims: "1"
+    services.loadbalancers: "2"
+    services.nodeports: "0"
+---
+> copy and save
+kubectl create -f object-quota.yaml -n ckad (OR) kubectl apply -f object-quota.yaml -n ckad
+
+# Pod
+kubectl run nginx-object-quota --image=nginx -n ckad -o yaml --dry-run=client > nginx-object-quota.yaml
