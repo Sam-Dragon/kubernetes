@@ -1,10 +1,9 @@
 # Resource Quota
 - It allows us to configure
   1. Default memory and cpu
-  2. Minimum memory and cpu
   3. Maximum memory and cpu
 
-Note: If you create resource quota, it enforces all the pods under creation to spcify the memory, cpu specifed
+Note: If you create resource quota, it enforces all the pods which will get created to spcify the memory, cpu specifed with limits and requests
 
 > resource-quota.yaml
 vi resource-quota.yaml
