@@ -1,16 +1,16 @@
-# Limit Range
+# Resource Quota
 - It allows us to configure
   1. Default memory and cpu
   2. Minimum memory and cpu
   3. Maximum memory and cpu
 
-> mem-imit-range.yaml
-vi mem-resource-quota.yaml
+> resource-quota.yaml
+vi resource-quota.yaml
 ---
 apiVersion: v1
-kind: LimitRange
+kind: ResourceQuota
 metadata:
-  name: mem-resource-quota
+  name: resource-quota
 spec:
   limits:
   - default:
@@ -24,4 +24,4 @@ spec:
     type: Container
 ---
 > copy and save
-kubectl create -f mem-resource-quota.yaml -n ckad (OR) kubectl apply -f mem-resource-quota.yaml -n ckad
+kubectl create -f resource-quota.yaml -n ckad (OR) kubectl apply -f resource-quota.yaml -n ckad
