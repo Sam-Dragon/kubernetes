@@ -1,1 +1,25 @@
+# Description
+resourcequotas shortform is 'quota'
 
+# Create
+kubectl create -f resource-quotas.yaml 
+
+# Edit
+kubectl edit resourcequotas namespace-resource-quotas -n ckad
+
+# Get
+kubectl get resourcequotas -n ckad
+
+> Get all resourcequotas
+kubectl get resourcequotas -n ckad
+
+# Delete
+kubectl delete resourcequotas namespace-resource-quotas -n ckad
+
+# Describe
+kubectl describe resourcequotas namespace-resource-quotas -n ckad
+
+# Export 
+> YAML
+kubectl get resourcequotas create-lr -n ckad --dry-run=client -o yaml > resource-quotas.yaml
+kubectl create -f config.yaml (OR) kubectl apply -f resource-quotas.yaml
