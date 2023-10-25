@@ -4,6 +4,8 @@
   2. Minimum memory and cpu
   3. Maximum memory and cpu
 
+Note: If you create resource quota, it enforces all the pods under creation to spcify the memory, cpu specifed
+
 > resource-quota.yaml
 vi resource-quota.yaml
 ---
