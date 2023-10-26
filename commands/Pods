@@ -56,7 +56,6 @@ kubectl describe pods hello-deployment-6896f5bbfb-m74zx -n ckad-namespace
 kubectl exec -it hello-deployment-6896f5bbfb-m74zx -n ckad-namespace sh [Or  bash] -- Or cqlsh [Cassandra]
 kubectl logs hello-deployment-6896f5bbfb-m74zx -n ckad-namespace
 kubectl get pods -n ckad-namespace -o wide 
-kubectl label pod nginx ckad-namespace app-
 
 > WATCH
 kubectl get pods -w
@@ -68,11 +67,8 @@ kubectl get po -n ckad-namespace -v=8
 > EXPORT
 kubectl run hello-world --image=hello-world -n ckad-namespace --dry-run=client -o yaml > hello-world.yaml
 
-> CREATE WITH OPTIONS [PORT, ENV, LABELS]
-kubectl run nginx --image=nginx -n ckad-namespace --port=5701 --env="APP_VERSION=1.0" --labels="app=ckad,env=prod"
-kubectl label pod -n ckad-namespace nginx app=ckad2 --overwrite
-kubectl get pod --show-labels
-kubectl get pod --label-columns=app,tier
+> CREATE WITH OPTIONS [PORT, ENV]
+kubectl run nginx --image=nginx -n ckad-namespace --port=5701 --env="APP_VERSION=1.0" 
 kubectl get pod --selector='app=demo' -n ckad-namespace (OR) kubectl get pod -l app=ckad2 -n ckad-namespace
 
 > DRY RUN [TO Prevent component creation]
