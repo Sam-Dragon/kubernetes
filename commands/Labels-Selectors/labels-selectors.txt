@@ -1,1 +1,24 @@
+# LABELS & SELECTORS
+- It gives logical grouping of resources
 
+# Create
+kubectl run nginx-label --image=nginx -n ckad --labels="app=ckad,env=prod"
+
+> Create with file
+> nginx-label.yaml
+---
+
+---
+kubectl apply -f nginx-label.yaml
+
+# Edit
+kubectl label pod -n ckad nginx-label app=ckad-update --overwrite
+
+> Get all labels
+kubectl label pod -n ckad --show-labels
+
+> Get labels with columns
+kubectl get pod --label-columns=app,tier
+
+# Delete
+kubectl label pod nginx ckad-namespace app-
