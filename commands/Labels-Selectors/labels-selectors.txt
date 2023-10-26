@@ -27,10 +27,13 @@ kubectl apply -f nginx-label.yaml
 kubectl label pod -n ckad nginx-label app=ckad-update --overwrite
 
 > Get all labels
-kubectl label pod -n ckad --show-labels
+kubectl get pod --show-labels -n ckad
+
+> Get specific pod label
+kubectl get pod nginx-label --show-labels -n ckad
 
 > Get labels with columns
 kubectl get pod --label-columns=app,tier
 
 # Delete
-kubectl label pod nginx ckad-namespace app-
+kubectl -n ckad label po nginx-label app-
