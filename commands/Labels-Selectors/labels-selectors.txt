@@ -7,7 +7,19 @@ kubectl run nginx-label --image=nginx -n ckad --labels="app=ckad,env=prod"
 > Create with file
 > nginx-label.yaml
 ---
-
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    app: ckad
+    env: prod
+  name: nginx-label
+  namespace: ckad
+spec:
+  containers:
+  - image: nginx
+    name: nginx-label
 ---
 kubectl apply -f nginx-label.yaml
 
