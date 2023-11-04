@@ -2,28 +2,60 @@
 replicasets (OR) replicaset shortform is 'rs'
 
 # Create
-kubectl create namespace ckad
-kubectl create namespace delete
+
+> replicaset.yml
+vi replicaset.yml
+...
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: replica-set
+  labels:
+    app: guestbook
+    tier: frontend
+spec:
+  # modify replicas according to your case
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        tier: frontend
+    spec:
+      containers:
+      - name: php-redis
+        image: gcr.io/google_samples/gb-frontend:v3
+...
+copy and paste
+kubectl create -f replicaset.yml -n ckad (OR) kubectl apply -f replicaset.yml -n ckad
 
 # Edit
-kubectl edit namespace ckad
+kubectl edit replicasets replica-set -n ckad
 
 # Get
-kubectl get namespace --all-namespace (OR) kubectl get namespace -A
+kubectl get replicasets -n ckad
 
-> Get specific namespace
-kubectl get namespace ckad
+> Get specific replicasets
+kubectl get replicasets replica-set -n ckad
 
 # Delete
-kubectl delete namespace delete
+kubectl delete replicasets replica-set -n ckad
 
 # Describe
-kubectl describe namespace ckad
+kubectl describe replicasets replica-set -n ckad
 
 # Export 
-kubectl create namespace ckad --dry-run=client -o yaml > ckad-create-namespace.yaml
-kubectl get namespace ckad -o yaml > ckad-get-namespace.yaml
+kubectl create replicasets ckad --dry-run=client -o yaml -n ckad > ckad-create-replicasets.yaml
+kubectl get replicasets ckad -o yaml -n ckad > ckad-get-replicasets.yaml
 
-# Import
-kubectl apply -f ckad-create-namespace.yaml
+# Scale
+> Scale with replicasets
+kubectl scale --replicas 2 replicasets replica-set -n ckad
 
+> Scale with replicaset yaml
+kubectl scale --replicas 2 replicaset.yml -n ckad
+
+
+Note: Dont create replicaset directly, it must be managed by deployment
