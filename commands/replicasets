@@ -2,7 +2,6 @@
 replicasets (OR) replicaset shortform is 'rs'
 
 # Create
-
 > replicaset.yml
 vi replicaset.yml
 ...
