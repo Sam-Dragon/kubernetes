@@ -1,7 +1,9 @@
 # Description
 replicasets (OR) replicaset shortform is 'rs'
+- it contains all the information about pod [image] to create & replicas to specify 
 
 # Create
+
 > replicaset.yml
 vi replicaset.yml
 ...
