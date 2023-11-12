@@ -10,7 +10,6 @@ spec:
       fsGroup: 2000
 ---
 
-> capabilities are added only to container not to pod
 -- CONTAINER LEVEL --
 ---
 containers:
@@ -29,9 +28,21 @@ containers:
           add: ['MAC_ADMIN']
 ---
 
+> capabilities are added only to container not to pod
+---
+containers:
+  - name: sec-ctx-demo
+    image: busybox:1.28
+    command: [ "sh", "-c", "sleep 1h" ]
+    volumeMounts:
+    - name: sec-ctx-vol
+      mountPath: /data/demo
+    securityContext:
+      capabilities:
+          add: ['MAC_ADMIN']
+---
+
 # Find the user of pod
 kubectl exec pod <POD> --whoami
-
-# 
 
 Note: container user overrides pod user permission
