@@ -33,3 +33,5 @@ containers:
 kubectl exec pod <POD> --whoami
 
 # 
+
+Note: container user overrides pod user permission
