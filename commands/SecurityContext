@@ -42,7 +42,11 @@ containers:
           add: ['MAC_ADMIN']
 ---
 
-# Find the user of pod
+# Find the user of pod from outside
 kubectl exec pod <POD> --whoami
+
+# Find the user of pod from outside
+kubectl exec pod <POD> sh
+ps aux
 
 Note: container user overrides pod user permission
