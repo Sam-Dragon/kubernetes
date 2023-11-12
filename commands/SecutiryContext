@@ -1,0 +1,30 @@
+# Security Context
+It is defined for a pod, they cannot stand independently
+
+-- POD LEVEL --
+---
+spec:
+  securityContext:
+      runAsUser: 1000
+      runAsGroup: 3000
+      fsGroup: 2000
+---
+
+> capabilities are added only to container not to pod
+-- CONTAINER LEVEL --
+---
+containers:
+  - name: sec-ctx-demo
+    image: busybox:1.28
+    command: [ "sh", "-c", "sleep 1h" ]
+    volumeMounts:
+    - name: sec-ctx-vol
+      mountPath: /data/demo
+    securityContext:
+      runAsUser: 1000
+      runAsGroup: 3000
+      fsGroup: 2000
+      allowPrivilegeEscalation: false
+      capabilities:
+          add: ['MAC_ADMIN']
+---

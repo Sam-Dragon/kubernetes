@@ -1,3 +1,0 @@
-# Security Context
-It is defined for a pod, they cannot stand independently
-
