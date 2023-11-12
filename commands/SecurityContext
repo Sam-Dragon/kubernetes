@@ -24,8 +24,6 @@ containers:
       runAsGroup: 3000
       fsGroup: 2000
       allowPrivilegeEscalation: false
-      capabilities:
-          add: ['MAC_ADMIN']
 ---
 
 > capabilities are added only to container not to pod
@@ -48,5 +46,8 @@ kubectl exec pod <POD> --whoami
 # Find the user of pod from outside
 kubectl exec pod <POD> sh
 ps aux
+
+# Set volume permissions & ownew ship policy for pod
+fsGroupChangePolicy - OnRootMismatch (OR) Always
 
 Note: container user overrides pod user permission
