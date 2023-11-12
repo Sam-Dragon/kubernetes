@@ -31,3 +31,5 @@ containers:
 
 # Find the user of pod
 kubectl exec pod <POD> --whoami
+
+# 
