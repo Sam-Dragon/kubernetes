@@ -28,3 +28,6 @@ containers:
       capabilities:
           add: ['MAC_ADMIN']
 ---
+
+# Find the user of pod
+kubectl exec pod <POD> --whoami
