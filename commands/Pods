@@ -47,6 +47,9 @@ kubectl delete pods hello-deployment-6896f5bbfb-4sf84 -n ckad-namespace --force 
 > Delete with namespace & selector
 kubectl delete pods hello-deployment-6896f5bbfb-4sf84 -n ckad-namespace --selector='app-demo' (OR) kubectl delete pods hello-deployment-6896f5bbfb-4sf84 -n ckad-namespace -l app=demo
 
+* > Delete pod faster
+kubectl delete pods hello-deployment-6896f5bbfb-4sf84 --force
+
 # Yaml
 kubectl -n ckad run hello-world --image=hello-world --dry-run=client -o yaml > hello-world.yaml
 kubectl delete -f hello-world.yaml
