@@ -23,3 +23,6 @@ kubectl describe resourcequotas namespace-resource-quotas -n ckad
 > YAML
 kubectl get resourcequotas create-lr -n ckad --dry-run=client -o yaml > resource-quotas.yaml
 kubectl create -f config.yaml (OR) kubectl apply -f resource-quotas.yaml
+
+# Request & Limits for pod
+kubectl run nginx --image=nginx --restart=Never --requests='cpu=250m,memory=64Mi' limits='cpu=500m,memory=128Mi' -n ckad
