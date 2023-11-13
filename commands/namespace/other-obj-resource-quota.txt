@@ -55,3 +55,25 @@ spec:
 ---
 > copy and save
 kubectl create -f volume-claim-2.yaml -n ckad (OR) kubectl apply -f volume-claim-2.yaml -n ckad
+
+# Use more CPU than expected
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cpu-demo
+  namespace: cpu-example
+spec:
+  containers:
+  - name: cpu-demo-ctr
+    image: vish/stress
+    resources:
+      limits:
+        cpu: "1"
+      requests:
+        cpu: "0.5"
+    args:
+    - -cpus
+    - "2"
+---
+> args will ensure that CPU once reaches limit will be throttled
