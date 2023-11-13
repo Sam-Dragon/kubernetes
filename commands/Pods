@@ -35,6 +35,9 @@ kubectl get pods -A (OR) kubectl get pods --all-namespaces
 > Get specific namespace
 kubectl get pods -n ckad-namespace
 
+> Get anything with key
+kubectl get pods -n ckad-namespace | grep <KEY TO SEARCH>
+
 > DELETE  
 kubectl delete pods hello-deployment-6896f5bbfb-4sf84
 
