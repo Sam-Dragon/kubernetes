@@ -1,0 +1,5 @@
+# Taints & Tolerance
+- basically fixes the node to the pod
+
+> Taint the node
+kubectl taint no rahul-aio-control-plane size=small:NoExecute
