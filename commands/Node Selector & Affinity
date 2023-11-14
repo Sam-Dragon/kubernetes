@@ -23,6 +23,7 @@ spec:
 
 # Node Affinity
 - we can check the matching label if present on node, then only schedule else skip
+> key in value
 ...
 apiVersion: v1
 kind: Pod
@@ -34,14 +35,35 @@ spec:
       requiredDuringSchedulingIgnoredDuringExecution:
         nodeSelectorTerms:
         - matchExpressions:
-          - key: disktype
+          - key: size
             operator: In
             values:
-            - ssd            
+            - small            
   containers:
   - name: nginx-node-affinity
     image: nginx
     imagePullPolicy: IfNotPresent
 ...
+
+> key exists
+...
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: size
+            operator: Exists        
+  containers:
+  - name: nginx-node-affinity
+    image: nginx
+    imagePullPolicy: IfNotPresent
+...
+
 
 Note: Dont try this on single base node
