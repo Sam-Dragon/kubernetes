@@ -7,5 +7,41 @@ kubectl label no rahul-aio-control-plane size=Large
 2. create a pod with the label
 kubectl run nginx-label --image=nginx --labels=size=Large -n ckad
 
+> Match with node name
+...
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  nodeName: foo-node # schedule pod to specific node
+  containers:
+  - name: nginx-node-affinity
+    image: nginx
+    imagePullPolicy: IfNotPresent
+...
+
 # Node Affinity
-- we can check the matching label if present on node, then only shcedule else skip
+- we can check the matching label if present on node, then only schedule else skip
+...
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: disktype
+            operator: In
+            values:
+            - ssd            
+  containers:
+  - name: nginx-node-affinity
+    image: nginx
+    imagePullPolicy: IfNotPresent
+...
+
+Note: Dont try this on single base node
