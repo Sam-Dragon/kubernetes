@@ -1,0 +1,11 @@
+# Node Selector
+- we can select a node on which our pod can be scheduled. It can be done with the help of labels
+
+1. update the node with label
+kubectl label no rahul-aio-control-plane size=Large
+
+2. create a pod with the label
+kubectl run nginx-label --image=nginx --labels=size=Large -n ckad
+
+# Node Affinity
+- we can check the matching label if present on node, then only shcedule else skip
