@@ -3,7 +3,7 @@
 
 # Patterns
 - sidecar 
-- here the container which share same life cyle, network space, volumes
+- Here the container which share same life cyle, network space, volumes
 Ex: Log Agent for container
 
 ---
@@ -15,4 +15,26 @@ spec:
     name: log-agent
 ---
 
-# Adaptor 
+# Adapter
+- adapt to the changes w.r.t environment
+Ex: Adaptor service to convert dates as per the database
+---
+spec:
+  containers:
+  - image: nginx
+    name: nginx-label
+  - image: adapter-agent
+    name: adapter-agent
+---
+
+# Ambaseddor
+- provided as a seperate container for database connectivity based on ambassedor container
+
+---
+spec:
+  containers:
+  - image: nginx
+    name: nginx-label
+  - image: ambassedor-agent
+    name: ambassedor-agent
+---
