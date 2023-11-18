@@ -38,3 +38,5 @@ spec:
   - image: ambassedor-agent
     name: ambassedor-agent
 ---
+
+Note: Implementation of above patterns for a pod is same
