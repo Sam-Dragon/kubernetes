@@ -1,0 +1,15 @@
+# init Containers
+- it runs only once in life time of pod
+- we can define multiple containers within container sections
+
+---
+spec:
+  containers:
+  - image: nginx
+    name: nginx-label
+  - image: log-agent
+    name: log-agent
+  initcontainers:
+  - image: database
+    name: database-label
+---
