@@ -1,0 +1,18 @@
+# Multiple Containers
+- we can define multiple containers within container sections
+
+# Patterns
+- sidecar 
+- here the container which share same life cyle, network space, volumes
+Ex: Log Agent for container
+
+---
+spec:
+  containers:
+  - image: nginx
+    name: nginx-label
+  - image: log-agent
+    name: log-agent
+---
+
+# Adaptor 
