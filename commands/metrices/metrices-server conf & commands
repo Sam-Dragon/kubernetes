@@ -1,0 +1,14 @@
+# Metric server
+- aggregator to application 
+
+# Enable
+1. Clone
+git clone https://github.com/kubernetes-incubator/metrices.service.git (OR) git clone https://github.com/kubernetes-sigs/metrics-server.git
+
+2. Create
+kubectl create -f deploy/1.8+/
+
+# commands
+kubectl top node
+kubectl top pod
+
