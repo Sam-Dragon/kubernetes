@@ -1,10 +1,21 @@
-# CONFIG
+# KUBE CONFIG
+- basically we need four components for authentication in config file called KubeConfig
+* Server [Cluster] 
+* Client Key * Client Certification * Certificate Authority [Users]
+
+> It has 3 sections
+- Clusters
+- Contexts [Cluster to User mapping]
+- Users
 
 # Create
 kubectl config set-context ckad-context
 
 > Create with params
 kubectl config set-context ckad-context --cluster=<cluster> --user=<user> --namespace=<namespace>
+
+# Change the context
+kubectl config use-context USER@CLUSTER
 
 # Edit
 kubectl config use-context ckad-context
@@ -18,7 +29,14 @@ kubectl config get-contexts ckad-context
 > Get Current Context
 ** kubectl config current-context
 
+> Get all config
+kubectl config view
+
+> Get all config with file
+kubectl config view --kubeconfig=my=config-file
+
 # Delete
 kubectl config delete-context ckad-context
 
-
+## Namespace
+kubectl config set-context current --namespace=ckad
