@@ -8,6 +8,8 @@
 - Contexts [Cluster to User mapping]
 - Users
 
+Path: {HOME}/.kube/config
+
 # Create
 kubectl config set-context ckad-context
 
