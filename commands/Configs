@@ -12,7 +12,8 @@
 kubectl config set-context ckad-context
 
 > Create with params
-kubectl config set-context ckad-context --cluster=<cluster> --user=<user> --namespace=<namespace>
+kubectl config set-context ckad-context --cluster=<cluster> --user=<user> --namespace=<namespace> && kubectl config use-context <any-context>
+
 
 # Change the context
 kubectl config use-context USER@CLUSTER
@@ -40,3 +41,12 @@ kubectl config delete-context ckad-context
 
 ## Namespace
 kubectl config set-context current --namespace=ckad
+
+## Cluster
+> set cluster with proxy
+kubectl config set-cluster my-cluster-name --proxy-url=my-proxy-url
+
+# add a new user to your kubeconf that supports basic auth
+kubectl config set-credentials kubeuser/foo.kubernetes.com --username=kubeuser --password=kubepassword
+
+kubectl config unset users.foo  
