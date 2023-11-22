@@ -1,4 +1,5 @@
 # RBAC [Role Based Access Control]
+Role - Always associated with namespace
 
 # Create
 kubectl create role delete-role -n ckad --verb="get" --resource=secret
