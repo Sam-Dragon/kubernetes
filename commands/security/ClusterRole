@@ -1,0 +1,62 @@
+# RBAC [Role Based Access Control]
+Role - Always associated with namespace
+
+# Create
+kubectl create role delete-role -n ckad --verb="get" --resource=secret
+
+> Create with file
+> role.yml
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  creationTimestamp: "2023-11-22T16:27:19Z"
+  name: ckad-role
+  namespace: ckad
+  resourceVersion: "2961559"
+  uid: d22ba23d-d845-453a-9cdf-6cc105fa03d3
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - secrets
+  verbs:
+  - get
+---
+save and exit
+kubectl create -f role.yml (OR) kubectl apply -f role.yml
+
+# Edit
+kubectl edit role ckad-role -n ckad
+
+# Get
+kubectl get role -n ckad
+
+> Get specific roles
+
+> Yaml
+kubectl get role ckad-role -n ckad -o yaml
+
+> Json 
+kubectl get role ckad-role -n ckad -o json
+
+> Get all roles
+kubectl get role -n ckad -o yaml
+
+# Delete
+kubectl delete role delete-role -n ckad
+
+# Describe
+kubectl describe role -n ckad
+
+> Describe specific role
+kubectl describe role ckad-role -n ckad
+
+# Export 
+> YAML
+kubectl create role create-role -n ckad --dry-run=client -o yaml > role-new.yaml
+kubectl create -f config.yaml (OR) kubectl apply -f config.yaml
+
+> JSON
+kubectl create role create-json-role -n ckad --dry-run=client -o json > role-json.yaml
+kubectl create -f config-json.yaml (OR) kubectl apply -f config-json.yaml
