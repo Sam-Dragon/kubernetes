@@ -1,17 +1,17 @@
 # RBAC [Role Based Access Control]
-Role - Always associated with namespace
+clusterrole - Always associated with cluster
 
 # Create
-kubectl create role delete-role -n ckad --verb="get" --resource=secret
+kubectl create clusterrole delete-clusterrole -n ckad --verb="get" --resource=secret
 
 > Create with file
-> role.yml
+> clusterrole.yml
 ---
 apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
+kind: clusterrole
 metadata:
   creationTimestamp: "2023-11-22T16:27:19Z"
-  name: ckad-role
+  name: ckad-clusterrole
   namespace: ckad
   resourceVersion: "2961559"
   uid: d22ba23d-d845-453a-9cdf-6cc105fa03d3
@@ -24,39 +24,39 @@ rules:
   - get
 ---
 save and exit
-kubectl create -f role.yml (OR) kubectl apply -f role.yml
+kubectl create -f clusterrole.yml (OR) kubectl apply -f clusterrole.yml
 
 # Edit
-kubectl edit role ckad-role -n ckad
+kubectl edit clusterrole ckad-clusterrole -n ckad
 
 # Get
-kubectl get role -n ckad
+kubectl get clusterrole -n ckad
 
-> Get specific roles
+> Get specific clusterroles
 
 > Yaml
-kubectl get role ckad-role -n ckad -o yaml
+kubectl get clusterrole ckad-clusterrole -n ckad -o yaml
 
 > Json 
-kubectl get role ckad-role -n ckad -o json
+kubectl get clusterrole ckad-clusterrole -n ckad -o json
 
-> Get all roles
-kubectl get role -n ckad -o yaml
+> Get all clusterroles
+kubectl get clusterrole -n ckad -o yaml
 
 # Delete
-kubectl delete role delete-role -n ckad
+kubectl delete clusterrole delete-clusterrole -n ckad
 
 # Describe
-kubectl describe role -n ckad
+kubectl describe clusterrole -n ckad
 
-> Describe specific role
-kubectl describe role ckad-role -n ckad
+> Describe specific clusterrole
+kubectl describe clusterrole ckad-clusterrole -n ckad
 
 # Export 
 > YAML
-kubectl create role create-role -n ckad --dry-run=client -o yaml > role-new.yaml
+kubectl create clusterrole create-clusterrole -n ckad --dry-run=client -o yaml > clusterrole-new.yaml
 kubectl create -f config.yaml (OR) kubectl apply -f config.yaml
 
 > JSON
-kubectl create role create-json-role -n ckad --dry-run=client -o json > role-json.yaml
+kubectl create clusterrole create-json-clusterrole -n ckad --dry-run=client -o json > clusterrole-json.yaml
 kubectl create -f config-json.yaml (OR) kubectl apply -f config-json.yaml
