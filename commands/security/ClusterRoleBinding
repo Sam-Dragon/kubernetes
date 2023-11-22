@@ -66,3 +66,6 @@ kubectl create -f config.yaml (OR) kubectl apply -f config.yaml
 > JSON
 kubectl create clusterrolebinding create-json-clusterrolebinding -n ckad --dry-run=client -o json > clusterrolebinding-json.yaml
 kubectl create -f config-json.yaml (OR) kubectl apply -f config-json.yaml
+
+* > Merge
+kubectl auth reconcile file.yml
