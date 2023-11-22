@@ -2,7 +2,7 @@
 Role - Always associated with namespace
 
 # Create
-kubectl create role delete-role -n ckad --verb="get" --resource=secret
+kubectl create role delete-role -n ckad --verb=get,create,delete --resource=secret
 
 > Create with file
 > role.yml
