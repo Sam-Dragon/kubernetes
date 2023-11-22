@@ -1,0 +1,68 @@
+# clusterrolebindingBindings 
+- Associate clusterrolebinding to user for access across the cluster
+
+# Create
+kubectl -n ckad create clusterrolebinding delete-clusterrolebinding --user=smartphyuser --clusterrole=delete-role
+
+> Create with file
+> clusterrolebinding.yml
+---
+apiVersion: v1
+items:
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-11-22T16:38:31Z"
+    name: ckad-clusterrolebinding
+    namespace: ckad
+    resourceVersion: "2962587"
+    uid: a5e635f6-5e38-4ba6-89b4-3c24126b7c3e
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: ckad-role
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: smartphyuser
+kind: List
+metadata:
+  resourceVersion: ""
+---
+save and exit
+kubectl create -f clusterrolebinding.yml (OR) kubectl apply -f clusterrolebinding.yml
+
+# Edit
+kubectl edit clusterrolebinding ckad-clusterrolebinding -n ckad
+
+# Get
+kubectl get clusterrolebinding -n ckad
+
+> Get specific clusterrolebindings
+
+> Yaml
+kubectl get clusterrolebinding ckad-clusterrolebinding -n ckad -o yaml
+
+> Json 
+kubectl get clusterrolebinding ckad-clusterrolebinding -n ckad -o json
+
+> Get all clusterrolebindings
+kubectl get clusterrolebinding -n ckad -o yaml
+
+# Delete
+kubectl delete clusterrolebinding delete-clusterrolebinding -n ckad
+
+# Describe
+kubectl describe clusterrolebinding -n ckad
+
+> Describe specific clusterrolebinding
+kubectl describe clusterrolebinding ckad-clusterrolebinding -n ckad
+
+# Export 
+> YAML
+kubectl create clusterrolebinding create-clusterrolebinding -n ckad --dry-run=client -o yaml > clusterrolebinding-new.yaml
+kubectl create -f config.yaml (OR) kubectl apply -f config.yaml
+
+> JSON
+kubectl create clusterrolebinding create-json-clusterrolebinding -n ckad --dry-run=client -o json > clusterrolebinding-json.yaml
+kubectl create -f config-json.yaml (OR) kubectl apply -f config-json.yaml
