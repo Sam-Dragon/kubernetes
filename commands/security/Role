@@ -22,6 +22,12 @@ rules:
   - secrets
   verbs:
   - get
+- apiGroups:
+  - ""
+  resources:
+  - deployments
+  verbs:
+  - create
 ---
 save and exit
 kubectl create -f role.yml (OR) kubectl apply -f role.yml
