@@ -1,3 +1,5 @@
 # Check Access
 
 kubectl auth can-i <OPERATION> <TYPE>
+
+kubectl auth can-i create pods
