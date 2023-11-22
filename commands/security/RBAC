@@ -1,0 +1,50 @@
+# RBAC [Role Based Access Control]
+
+# Create
+kubectl create role delete-role -n ckad
+
+> Create with Env variables
+kubectl create role env-role --from-literal=color=red -n ckad
+
+> Create with file
+echo -e "key=rahul\nvalue=sheth" > config.properties
+kubectl create role file-role --from-file=config.properties -n ckad
+
+> Create with file with comments
+echo -e "key=rahul\n#This is comment\nvalue=sheth" > config.env
+kubectl create role env-file-role --from-env-file=config.env -n ckad
+
+> Create with file with key
+echo -e "key=rahul\nvalue=sheth" > config.txt
+kubectl create role file-as-key-role --from-file=special=config.txt -n ckad
+
+# Edit
+kubectl edit role env-role -n ckad
+
+# Get
+kubectl get role -n ckad
+
+> Get specific roles
+> Yaml
+kubectl get role env-role -n ckad -o yaml
+> Json 
+kubectl get role env-role -n ckad -o json
+
+> Get all roles
+kubectl get role -n ckad -o yaml
+
+# Delete
+kubectl delete role delete-role -n ckad
+
+# Describe
+kubectl describe role env-role -n ckad
+
+# Export 
+> YAML
+kubectl create role create-role -n ckad --dry-run=client -o yaml > config.yaml
+kubectl create -f config.yaml (OR) kubectl apply -f config.yaml
+
+> JSON
+
+kubectl create role create-json-role -n ckad --dry-run=client -o json > config-json.yaml
+kubectl create -f config-json.yaml (OR) kubectl apply -f config-json.yaml
