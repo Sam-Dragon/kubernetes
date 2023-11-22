@@ -6,3 +6,6 @@ kubectl auth can-i create pods
 # Imporsonate user
 kubectl auth can-i create pods --as <USER>
 kubectl auth can-i create pods --as dev-user
+
+# Namespace
+kubectl auth can-i create pods --as dev-user --namespace=ckad
