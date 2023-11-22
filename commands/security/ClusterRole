@@ -8,7 +8,7 @@ kubectl create clusterrole delete-clusterrole -n ckad --verb="get" --resource=se
 > clusterrole.yml
 ---
 apiVersion: rbac.authorization.k8s.io/v1
-kind: clusterrole
+kind: ClusterRole
 metadata:
   creationTimestamp: "2023-11-22T16:27:19Z"
   name: ckad-clusterrole
