@@ -1,3 +1,6 @@
+# Authorization modes for cluster
+kubectl describe pod kube-apiserver-controlplane -n kube-system
+
 # Check Access
 
 kubectl auth can-i <OPERATION> <TYPE>
