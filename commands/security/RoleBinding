@@ -1,0 +1,68 @@
+# rolebindingBindings 
+- Associate rolebinding to user for access
+
+# Create
+kubectl -n ckad create rolebinding delete-rolebinding --user=smartphyuser --role=delete-role
+
+> Create with file
+> rolebinding.yml
+---
+apiVersion: v1
+items:
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    creationTimestamp: "2023-11-22T16:38:31Z"
+    name: smartphyuser-ckad-rb
+    namespace: ckad
+    resourceVersion: "2962587"
+    uid: a5e635f6-5e38-4ba6-89b4-3c24126b7c3e
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: Role
+    name: ckad-role
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: smartphyuser
+kind: List
+metadata:
+  resourceVersion: ""
+---
+save and exit
+kubectl create -f rolebinding.yml (OR) kubectl apply -f rolebinding.yml
+
+# Edit
+kubectl edit rolebinding ckad-rolebinding -n ckad
+
+# Get
+kubectl get rolebinding -n ckad
+
+> Get specific rolebindings
+
+> Yaml
+kubectl get rolebinding ckad-rolebinding -n ckad -o yaml
+
+> Json 
+kubectl get rolebinding ckad-rolebinding -n ckad -o json
+
+> Get all rolebindings
+kubectl get rolebinding -n ckad -o yaml
+
+# Delete
+kubectl delete rolebinding delete-rolebinding -n ckad
+
+# Describe
+kubectl describe rolebinding -n ckad
+
+> Describe specific rolebinding
+kubectl describe rolebinding ckad-rolebinding -n ckad
+
+# Export 
+> YAML
+kubectl create rolebinding create-rolebinding -n ckad --dry-run=client -o yaml > rolebinding-new.yaml
+kubectl create -f config.yaml (OR) kubectl apply -f config.yaml
+
+> JSON
+kubectl create rolebinding create-json-rolebinding -n ckad --dry-run=client -o json > rolebinding-json.yaml
+kubectl create -f config-json.yaml (OR) kubectl apply -f config-json.yaml
