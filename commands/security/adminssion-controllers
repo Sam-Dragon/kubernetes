@@ -4,4 +4,14 @@
 1. NamespacesProvision - if enabled, it will automatically create namespace if not exists
 
 # Find all
-kube-apiserver -h | grep enable-admission-plugins
+ps -ef | grep kube-apiserver | grep admission-plugins
+
+# Enable plugin
+Path - /etc/kubernetes/manifests/kube-apiserver.yaml
+Add
+...
+spec:
+  containers:
+  - command:
+   --enable-admission-plugins=NamespaceAutoProvision 
+...
