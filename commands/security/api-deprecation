@@ -12,3 +12,6 @@ Time
 - GA - 12 months
 - Beta - 9 months
 - alpha - no support
+
+# Update kubernetes version [Needs installaiton]
+kubectl convert <old-version> --output-version <new-version>
