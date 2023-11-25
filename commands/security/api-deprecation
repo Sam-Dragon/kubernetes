@@ -7,3 +7,8 @@ stogra version - etcdctl
 > Deprecation
 - cannot remove resources once assigned to one version. it can be removed in next version only
 - backward compatibility must not be broken when upgraded follwed by downgrade
+
+Time
+- GA - 12 months
+- Beta - 9 months
+- alpha - no support
