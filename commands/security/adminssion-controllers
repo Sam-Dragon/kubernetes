@@ -1,0 +1,7 @@
+# Admission Controllers
+- basically validates the request. its like framwork support
+
+1. NamespacesProvision - if enabled, it will automatically create namespace if not exists
+
+# Find all
+kube-apiserver -h | grep enable-admission-plugins
