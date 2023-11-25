@@ -1,1 +1,9 @@
 # Api Decprecated
+
+> Verification
+preferred version - kubectl get <RESOURCe>
+stogra version - etcdctl 
+
+> Deprecation
+- cannot remove resources once assigned to one version. it can be removed in next version only
+- backward compatibility must not be broken when upgraded follwed by downgrade
