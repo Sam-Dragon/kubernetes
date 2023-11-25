@@ -86,3 +86,6 @@ kubectl run hello-world --image=hello-world -n ckad-namespace --dry-run=client
 
 > Pod Service Account
 kubectl get pods --all-namespaces -o jsonpath='{range .items[?(@.spec.serviceAccountName == "dashboard-sa")]}{.metadata.namespace} {.metadata.name}{"\n"}{end}'
+
+> Check pod based on user
+kubectl get pods <POD> --as dev-user
