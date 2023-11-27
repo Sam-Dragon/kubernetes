@@ -25,6 +25,20 @@ spec:
 - Centralized pool of volumes configured by administrator for the usage
 
 ---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: foo-pv
+spec:
+  storageClassName: ""
+  claimRef:
+    name: foo-pvc
+    namespace: foo
+  ...
+---
+
+> Pod
+---
 spec:
   containers:
     - name: test
@@ -45,6 +59,19 @@ spec:
 # Persistent Volume Claims [PVC]
 - To use or claim a persistent volume to the user, we need an object called PVC 
 
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: foo-pvc
+  namespace: foo
+spec:
+  storageClassName: "" # Empty string must be explicitly set otherwise default StorageClass will be set
+  volumeName: foo-pv
+  ...
+---
+
+> Pod
 ---
 spec:
   containers:
