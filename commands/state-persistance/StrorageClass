@@ -1,1 +1,40 @@
+# Storage Class
+- it is the dynamic provisioning of persistence volumes
 
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: google-storage
+provisioner: kubernetes.io/gce-pd
+---
+
+# Persistent Volume Claims [PVC]
+- To create dynamic volume using PVC, we need to define the storage class 
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: myclaim
+  namespace: foo
+spec:
+  storageClassName: "google-storage" 
+  volumeName: foo-pv
+  ...
+---
+
+> Pod
+---
+spec:
+  containers:
+    - name: myfrontend
+      image: nginx
+      volumeMounts:
+      - mountPath: "/var/www/html"
+        name: mypd
+  volumes:
+    - name: mypd
+      persistentVolumeClaim:
+        claimName: myclaim
+---
