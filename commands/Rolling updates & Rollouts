@@ -1,7 +1,25 @@
 # Rolling updates & Rollouts
 
 # Rollout status
+> All rollouts
+kubectl rollout status deploy
+
+> Specific rollout
 kubectl rollout status deploy <DEPLOYMENT NAME>
 
+> Specific rollout with namespace
+kubectl rollout status deploy <DEPLOYMENT NAME> -n <NAMESPACE>
+
 # Rollout history
+> All rollouts
+kubectl rollout history deploy
+
+> Specific rollout
 kubectl rollout history deploy <DEPLOYMENT NAME>
+
+> Specific rollout with namespace
+kubectl rollout history deploy <DEPLOYMENT NAME> -n <NAMESPACE>
+
+# Deployment Strategy
+1. Recreate
+2. Rolling Update [Default]
