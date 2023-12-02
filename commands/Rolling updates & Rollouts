@@ -31,5 +31,5 @@ kubectl rollout undo deploy <DEPLOYMENT>
 > Undo to last depolyment
 - Get revision number
 kubectl rollout history deployment <DEPLOYMENT NAME>
-kubectl rollout undo deploy <DEPLOYMENT> --revision=<REViSION NUMBER>
+kubectl rollout undo deploy <DEPLOYMENT> --revision=<REViSION NUMBER> --record
 
