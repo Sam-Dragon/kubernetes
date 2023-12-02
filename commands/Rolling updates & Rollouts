@@ -1,0 +1,7 @@
+# Rolling updates & Rollouts
+
+# Rollout status
+kubectl rollout status deploy <DEPLOYMENT NAME>
+
+# Rollout history
+kubectl rollout history deploy <DEPLOYMENT NAME>
