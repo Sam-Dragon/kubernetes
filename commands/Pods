@@ -89,3 +89,7 @@ kubectl get pods --all-namespaces -o jsonpath='{range .items[?(@.spec.serviceAcc
 
 > Check pod based on user
 kubectl get pods <POD> --as dev-user
+
+
+> Edit Deployment Image
+kubectl set image deploy/<DEPLOYMENT_NAME> <CONTAINER>=<IMAGE> -n ckad
