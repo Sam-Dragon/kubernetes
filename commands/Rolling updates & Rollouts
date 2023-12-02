@@ -25,7 +25,6 @@ kubectl rollout history deploy <DEPLOYMENT NAME> -n <NAMESPACE>
 2. Rolling Update [Default]
 
 # Upgrade
-
 > Undo to last depolyment
 kubectl rollout undo deploy <DEPLOYMENT>
 
