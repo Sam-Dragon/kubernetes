@@ -52,3 +52,24 @@ spec:
           if int(os.environ.get("JOB_COMPLETION_INDEX")) % 2 == 0:
             sys.exit(1)          
 ---
+
+# Cron Jobs
+
+> job.yml
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: pi
+spec:
+  schedule: 0 0 1 1 * *
+  template:
+    spec:
+      containers:
+      - name: pi
+        image: perl:5.34.0
+        command: ["perl",  "-Mbignum=bpi", "-wle", "print bpi(2000)"]
+      restartPolicy: Never
+  backoffLimit: 4
+---
+save & create it
