@@ -33,4 +33,4 @@ kubectl rollout undo deploy <DEPLOYMENT> --to-revision=<REViSION NUMBER> --recor
 1. Recreate - bring all pod down at once and create new pods
 2. Rolling Update [Default] - bring one pod down at time and create it
 3. Blue-Green - blue is older version & green is newer version & switch is with service
-4. Canary - small percentage is rounted to new version vs older version [Advance version of blue-green deployment]
+4. Canary - small percentage is rounted to new version vs older version [Advance version of blue-green deployment]. It uses labels & selectors
