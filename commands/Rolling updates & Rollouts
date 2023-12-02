@@ -23,3 +23,14 @@ kubectl rollout history deploy <DEPLOYMENT NAME> -n <NAMESPACE>
 # Deployment Strategy
 1. Recreate
 2. Rolling Update [Default]
+
+# Upgrade
+
+> Undo to last depolyment
+kubectl rollout undo deploy <DEPLOYMENT>
+
+> Undo to last depolyment
+- Get revision number
+kubectl rollout history deployment <DEPLOYMENT NAME>
+kubectl rollout undo deploy <DEPLOYMENT> --revision=<REViSION NUMBER>
+
