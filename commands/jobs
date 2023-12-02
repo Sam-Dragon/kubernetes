@@ -19,3 +19,6 @@ spec:
 save & create it
 
 kubectl create -f job.yml
+
+# Output of jobs
+kubectl logs jobs
