@@ -1,6 +1,6 @@
 # LABELS & SELECTORS
 - It gives logical grouping of resources
-- spec matchLabels to labels must match
+- spec selector matchLabels to template labels must match
 
 # Create
 kubectl run nginx-label --image=nginx -n ckad --labels="app=ckad,env=prod"
