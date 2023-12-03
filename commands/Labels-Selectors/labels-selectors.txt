@@ -37,3 +37,10 @@ kubectl get pod --label-columns=app,tier
 
 # Delete
 kubectl -n ckad label po nginx-label app-
+
+
+## Selector
+- It is field to filter the labels
+
+> Get by selector
+kubectl get pod --selector=app=ckad -n ckad
