@@ -1,0 +1,32 @@
+# Helm Chart
+- easy way to may dynamic parameters accross the yaml's
+
+1. It requires a file called "values.yml"
+2. We need to change configurable properties with "{{.values.property}}"
+
+# Commands from Hub
+
+> Search keyword from Hub
+helm search hub <KEYWORD>
+
+> Install repo
+helm repo add bitnami https://charts.bitnami.com/bitnami
+
+> Search from Repo
+helm search repo <KEYWORD>
+
+> Find all helm repo
+helm repo list
+
+> install chart from repo
+helm install bravo bitnami/drupal 
+
+> check chart
+helm list
+
+> uninstall chart from repo 
+helm uninstall bravo bitnami/drupal 
+helm list
+
+> Download chart from existing repo
+helm pull --untar bitnami/apache
