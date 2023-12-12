@@ -1,0 +1,93 @@
+# Ingress
+- shortfrom is 'ing'
+- It is just discovery-server which navigates the request based on context path  or based on host name
+- It sets all configs under the 'rule' section
+
+# Create [Declarative way] - based on backend service
+> ingress.yml
+vi ingress.yml
+...
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: minimal-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx-example
+  rules:
+  - http:
+      paths:
+      - path: /testpath
+        pathType: Prefix
+        backend:
+          service:
+            name: test
+            port:
+              number: 80
+...
+
+(OR) 
+
+> based on host
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-wildcard-host
+spec:
+  rules:
+  - host: "foo.bar.com"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/bar"
+        backend:
+          service:
+            name: service1
+            port:
+              number: 80
+  - host: "*.foo.com"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/foo"
+        backend:
+          service:
+            name: service2
+            port:
+              number: 80
+
+---
+save and apply
+kubectl apply -f ingress.yml
+
+> Imperative command
+kubectl create ingress <ingress-name> --rule="host/path=service:port"
+kubectl -n ckad create ingress ingress-test --rule="wear.my-online-store.com/wear*=wear-service:80"
+
+# Edit
+kubectl -n ckad edit ingress ingress-test --rule="wear.my-online-store.com/wear*=wear-service:80"
+
+# Get
+kubectl -n ckad get ingress ingress-test
+
+# Describe
+kubectl -n ckad describe ingress ingress-test
+
+# Delete
+kubectl -n ckad delete ingress ingress-test
+
+## Ingress Class
+---
+apiVersion: networking.k8s.io/v1
+kind: IngressClass
+metadata:
+  labels:
+    app.kubernetes.io/component: controller
+  name: nginx-example
+  annotations:
+    ingressclass.kubernetes.io/is-default-class: "true"
+spec:
+  controller: k8s.io/ingress-nginx
+---
