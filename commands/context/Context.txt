@@ -1,1 +1,8 @@
+Context
+- get all the context in the cluster
 
+# Get
+kubectl config get-contexts 
+
+# Set
+kubectl config set-context --current --namespace=ckad
