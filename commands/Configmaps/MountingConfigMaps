@@ -50,6 +50,7 @@ spec:
     volumeMounts:
     - mountPath: /home
       name: mount-configmaps-volume
+      readOnly: true # Property to set read access
 volumes:
 - configMap:
     defaultMode: 420
@@ -57,3 +58,5 @@ volumes:
   name: mount-configmaps-volume
 ...
 kubectl apply -f volume-cm-po.yaml
+
+# Read configmaps as volumes
