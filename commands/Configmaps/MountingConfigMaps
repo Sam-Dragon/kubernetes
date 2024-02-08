@@ -33,6 +33,12 @@ spec:
       configMapKeyRef:
         key: color
         name: env-cm
+  - name: NAME_KEY
+    valueFrom:
+      configMapKeyRef:
+        key: name
+        name: env-cm
+        optional: true # mark the variable as optional
 ...
 kubectl apply -f env-cm-po.yaml
 
