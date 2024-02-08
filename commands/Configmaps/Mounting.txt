@@ -26,7 +26,7 @@ vi env-cm-po.yaml
 ...
 spec:
   containers:
-  command: ["/bin/sh", "-c", "echo $color"] # Read configmap env variable
+  command: ["/bin/sh", "-c", "echo $(color)"] # Read configmap env variable
   env:
   - name: COLOR_KEY
     valueFrom:
