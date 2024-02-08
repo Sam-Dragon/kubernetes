@@ -40,6 +40,30 @@ containers:
           add: ['MAC_ADMIN']
 ---
 
+# Additional configuration for container / pod
+
+# SECCOMP PROFILE
+---
+securityContext:
+  seccompProfile:
+    type: RuntimeDefault
+---
+
+# LOCALHOST PROFILE
+---
+securityContext:
+  seccompProfile:
+    type: Localhost
+    localhostProfile: my-profiles/profile-allow.json
+---
+
+# SE LINUX OPTIONS
+---
+securityContext:
+  seLinuxOptions:
+    level: "s0:c123,c456"
+---
+
 # Find the user of pod from outside
 kubectl exec pod <POD> --whoami
 
