@@ -1,0 +1,15 @@
+# Create Immutable configmap
+
+cat > im-cm.yml
+---
+apiVersion: v1
+data:
+  name: db
+kind: ConfigMap
+metadata:
+  name: my-cm
+  namespace: default
+immutable: true
+---
+
+kubectl create -f im-cm.yml (OR) kubectl apply -f im-cm.yml
