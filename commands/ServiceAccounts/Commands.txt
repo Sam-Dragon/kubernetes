@@ -31,6 +31,26 @@ metadata:
 type: kubernetes.io/service-account-token
 ...
 
+# SD with token projection
+---
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    volumeMounts:
+    - mountPath: /var/run/secrets/tokens
+      name: vault-token
+  serviceAccountName: build-robot
+  volumes:
+  - name: vault-token
+    projected:
+      sources:
+      - serviceAccountToken:
+          path: vault-token
+          expirationSeconds: 7200
+          audience: vault
+---
+
 # After 1.22 & 1.24
 kubectl create serviceaccount <SERVICE_ACCOUNT> -n ckad
 kubectl create token <SERVICE_ACCOUNT> -n ckad
