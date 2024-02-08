@@ -15,7 +15,7 @@ spec:
 ...
 kubectl apply -f file-cm-po.yaml
 
-## Read configmaps for specific environment variable
+## Read configmaps for specific environment variable & display in command
 
 kubectl run env-cm-po --image=nginx -n ckad
 
@@ -26,6 +26,7 @@ vi env-cm-po.yaml
 ...
 spec:
   containers:
+  command: ["/bin/sh", "-c", "echo $color"] # Read configmap env variable
   env:
   - name: COLOR_KEY
     valueFrom:
@@ -60,23 +61,4 @@ volumes:
 ...
 kubectl apply -f volume-cm-po.yaml
 
-## Read configmaps environment variable in command
 
-kubectl run env-cm-po --image=nginx -n ckad
-
-kubectl get po env-cm-po -n ckad -o yaml > env-cm-po.yaml
-kubectl delete po env-cm-po -n ckad
-
-vi env-cm-po.yaml
-...
-spec:
-  containers:
-  command: ["/bin/sh", "-c", "echo $(color)"]
-  env:
-  - name: COLOR_KEY
-    valueFrom:
-      configMapKeyRef:
-        key: color
-        name: env-cm
-...
-kubectl apply -f env-cm-po.yaml
