@@ -66,3 +66,30 @@ volumes:
   name: mount-configmaps-volume
 ...
 kubectl apply -f volume-cm-po.yaml
+
+## Read configmaps as volumes / files from specific path
+- use it when configmap size is beyond 1MiB
+
+kubectl run volume-cm-po --image=nginx -n ckad
+
+kubectl get po volume-cm-po -n ckad -o yaml > volume-cm-po.yaml
+kubectl delete po volume-cm-po -n ckad
+
+vi volume-cm-po.yaml
+...
+spec:
+  containers:
+    ...
+    volumeMounts:
+    - mountPath: /home
+      name: mount-configmaps-volume
+      readOnly: true # Property to set read access
+volumes:
+- configMap:
+    name: file-as-key-cm
+    items:
+    - key: SPECIAL_LEVEL
+      path: keys
+  name: mount-configmaps-volume
+...
+kubectl apply -f volume-cm-po.yaml
