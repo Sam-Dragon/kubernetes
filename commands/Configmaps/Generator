@@ -1,0 +1,10 @@
+# Create a kustomization.yaml file with ConfigMapGenerator
+cat <<EOF >./kustomization.yaml
+configMapGenerator:
+- name: game-config-4
+  options:
+    labels:
+      game-config: config-4
+  files:
+  - configure-pod-container/configmap/game.properties
+EOF
