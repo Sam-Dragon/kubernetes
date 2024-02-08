@@ -50,3 +50,5 @@ kubectl describe serviceaccount <SERVICE_ACCOUNT> -n ckad | grep token
 # Find POD Service Account
 kubectl get pods --all-namespaces -o jsonpath='{range .items[?(@.spec.serviceAccountName == "dashboard-sa")]}{.metadata.namespace} {.metadata.name}{"\n"}{end}'
 
+# Bind SA to Node
+kubectl create token build-robot --bound-object-kind Node --bound-object-name node-001 --bound-object-uid 
