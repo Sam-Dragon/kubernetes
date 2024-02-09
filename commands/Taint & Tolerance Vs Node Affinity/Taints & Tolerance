@@ -4,9 +4,23 @@
 > Taint the node
 kubectl taint no rahul-aio-control-plane size=small:NoExecute
 
-> Add this to spec section of pod
+> Add this to spec section of pod with NoSchedule effect
 tolerations:
 - key: "key1"
   operator: "Equal"
   value: "value1"
   effect: "NoSchedule"
+
+> Add this to spec section of pod with NoSchedule effect matching key
+tolerations:
+- key: "key1"
+  operator: "Exists"
+  effect: "NoSchedule"
+
+> Add this to spec section of pod with NoExecute effect
+tolerations:
+- key: "key1"
+  operator: "Equal"
+  value: "value1"
+  effect: "NoExecute"
+  tolerationSeconds: 3600
