@@ -5,6 +5,7 @@ it can be done via api or tcp or through any command
 
 # Liveliness Probe
 > POD 
+
 > Command
 ---
 spec:
