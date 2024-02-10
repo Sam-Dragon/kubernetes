@@ -60,8 +60,17 @@ kubectl replace --force hello-world.yaml
 
 > DESCRIBE / EXEC / LOGS / WIDE [**SPECIAL**]
 kubectl describe pods hello-deployment-6896f5bbfb-m74zx -n ckad-namespace
-kubectl logs hello-deployment-6896f5bbfb-m74zx -n ckad-namespace
 kubectl get pods -n ckad-namespace -o wide 
+
+> LOGS 
+- basic logs
+kubectl logs hello-deployment-6896f5bbfb-m74zx -n ckad-namespace
+
+- specific container
+kubectl logs hello-deployment-6896f5bbfb-m74zx -c CONTAINER -n ckad-namespace
+
+- Live Streaming
+kubectl logs -f hello-deployment-6896f5bbfb-m74zx -n ckad-namespace 
 
 ** > Exec
 kubectl exec -it hello-deployment-6896f5bbfb-m74zx -n ckad-namespace sh [Or  bash] -- Or cqlsh [Cassandra]
@@ -69,7 +78,6 @@ kubectl exec -it hello-deployment-6896f5bbfb-m74zx -n ckad -- cat /app/app.log
 
 > WATCH
 kubectl get pods -w
-kubectl logs hello-deployment-6896f5bbfb-m74zx -n ckad-namespace -f
 
 > VERBOSE
 kubectl get po -n ckad-namespace -v=8
