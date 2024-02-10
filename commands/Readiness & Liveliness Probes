@@ -3,8 +3,6 @@
 
 it can be done via api or tcp or through any command
 
-
-
 # Liveliness Probe
 > POD 
 > Command
@@ -22,8 +20,9 @@ spec:
         command:
         - cat
         - /tmp/healthy
-      initialDelaySeconds: 5
-      periodSeconds: 5
+      initialDelaySeconds: 5 # Initial delay 
+      periodSeconds: 5 # Periodic check
+      failureThreshold: 8 # Retry attempts
 ---
 
 > Http
