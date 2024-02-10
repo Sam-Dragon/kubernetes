@@ -2,6 +2,9 @@
 - it runs only once in life time of pod
 - we can define multiple containers within container sections
 
+# Check init container logs 
+kubectl logs myapp-pod -c init-myservice 
+
 ---
 spec:
   containers:
