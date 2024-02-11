@@ -1,0 +1,3 @@
+# Annotations
+- mainly stores the metadata information of the obejct
+
