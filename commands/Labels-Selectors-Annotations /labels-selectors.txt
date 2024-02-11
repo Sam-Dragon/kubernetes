@@ -42,6 +42,7 @@ kubectl -n ckad label po nginx-label app-
 
 ## Selector
 - It is field to filter the labels
+- shortcut is  '-l'
 
 > Get by selector
 kubectl get pod --selector=app=ckad -n ckad
