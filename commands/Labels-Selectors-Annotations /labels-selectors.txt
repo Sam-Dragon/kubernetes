@@ -48,3 +48,6 @@ kubectl -n ckad label po nginx-label app-
 kubectl get pod --selector=app=ckad -n ckad
 kubectl get pod -l app in (ckad) -n ckad
 kubectl get pod -l app notin (ckad) -n ckad
+
+> Replace label using selector
+kubectl label pods -l app=nginx tier=fe
