@@ -46,4 +46,5 @@ kubectl -n ckad label po nginx-label app-
 
 > Get by selector
 kubectl get pod --selector=app=ckad -n ckad
-kubectl get pod -l app=ckad -n ckad
+kubectl get pod -l app in (ckad) -n ckad
+kubectl get pod -l app notin (ckad) -n ckad
