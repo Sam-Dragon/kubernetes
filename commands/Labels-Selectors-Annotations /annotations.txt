@@ -1,7 +1,14 @@
 # Annotations
 - mainly stores the metadata information of the obejct
 
+# Create
+kubectl annotate pods foo description='my frontend'
 
+# Edit
+kubectl annotate --overwrite pods foo description='my frontend running nginx'
+
+# Delete
+kubectl annotate pods foo description=
 
 ---
 apiVersion: v1
