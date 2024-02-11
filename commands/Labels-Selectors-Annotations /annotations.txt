@@ -1,3 +1,15 @@
 # Annotations
 - mainly stores the metadata information of the obejct
 
+
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: annotations-demo
+  annotations:
+    imageregistry: "https://hub.docker.com/"
+spec:
+  ...
+---
