@@ -1,1 +1,23 @@
+jobs
+- basically runs the task based on specified number of times [per task, it will create on pod]
 
+# Create
+kubectl create job my-job --image=busybox 
+
+# Edit
+kubectl edit job my-job 
+
+# Get
+kubectl get job my-job 
+
+# Describe
+kubectl describe job my-job 
+
+# Logs
+kubectl logs job my-job 
+
+# Delete
+kubectl delete job my-job  
+
+# job from cronjob
+kubectl create job test-job --from=cronjob/a-cronjob
