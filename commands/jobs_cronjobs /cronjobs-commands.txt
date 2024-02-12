@@ -4,3 +4,17 @@
 # Create
 kubectl create cronjob my-job --image=busybox --schedule="*/1 * * * *" -- date
 
+# Edit
+kubectl edit cronjob my-job 
+
+# Get
+kubectl get cronjob my-job 
+
+# Describe
+kubectl describe cronjob my-job 
+
+# Logs
+kubectl logs cronjob my-job 
+
+# Delete
+kubectl delete cronjob my-job  
