@@ -63,7 +63,7 @@ kind: CronJob
 metadata:
   name: pi
 spec:
-  schedule: 0 0 1 1 * *
+  schedule: 0 0 1 1 *
   template:
     spec:
       containers:
