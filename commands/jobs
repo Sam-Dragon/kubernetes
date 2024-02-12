@@ -74,5 +74,8 @@ spec:
   backoffLimit: 4
   startingDeadlineSeconds: 10
   concurrencyPolicy: Replace
+  suspend: true
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 1
 ---
 save & create it
