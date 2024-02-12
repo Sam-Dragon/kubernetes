@@ -77,5 +77,6 @@ spec:
   suspend: true
   successfulJobsHistoryLimit: 3
   failedJobsHistoryLimit: 1
+  timeZone: "Etc/UTC" 
 ---
 save & create it
