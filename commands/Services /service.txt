@@ -21,6 +21,8 @@ spec:
       port: 443
       targetPort: 9377
   type: ClusterIP
+  externalIPs:  # EXTERNAL IP PROVIDED
+    - 198.51.100.32
 ---
 
 # NodePort Service
