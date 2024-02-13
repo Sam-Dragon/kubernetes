@@ -63,6 +63,18 @@ status:
     - ip: 192.0.2.127
 ---
 
+# External name
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+  namespace: prod
+spec:
+  type: ExternalName
+  externalName: my.database.example.com
+---
+
 # Headless Service
 ---
 apiVersion: v1
