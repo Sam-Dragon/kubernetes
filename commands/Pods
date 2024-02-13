@@ -101,3 +101,6 @@ kubectl get pods <POD> --as dev-user
 
 > Edit Deployment Image
 kubectl set image deploy/<DEPLOYMENT_NAME> <CONTAINER>=<IMAGE> -n ckad
+
+> Print Environment variables
+ kubectl exec -it nginx -- printenv
