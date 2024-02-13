@@ -8,6 +8,7 @@ kind: Service
 metadata:
   name: my-service
 spec:
+  clusterIP: 10.107.205.15
   selector:
     app.kubernetes.io/name: MyApp
   ports:
