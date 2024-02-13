@@ -1,6 +1,7 @@
 # Service
 - syntax in yaml format
 
+# CLUSTERIP Service
 ---
 apiVersion: v1
 kind: Service
@@ -13,4 +14,22 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 9376
+  type: ClusterIP
+---
+
+# NodePort Service
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+spec:
+  selector:
+    app.kubernetes.io/name: MyApp
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 9376
+      nodePort: 30080
+  type: NodePort
 ---
