@@ -1,0 +1,20 @@
+# Service
+- basically use for accessing the application
+
+# Create
+kubectl create svc <SERVICE_NAME>
+
+# Edit
+kubectl edit svc <SERVICE_NAME>
+
+# Get
+kubectl get svc <SERVICE_NAME>
+
+# Delete
+kubectl delete svc <SERVICE_NAME>
+
+# Describe
+kubectl describe svc <SERVICE_NAME>
+
+# Logs
+kubectl logs svc <SERVICE_NAME>
