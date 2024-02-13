@@ -2,7 +2,7 @@
 - basically use for accessing the application
 
 # Expose
-kubectl expose <DEPLOY / REPLICASET / POD> <NAME> --name=SERVICE_NAME --port=SERVICE_PORT --type=CLUSTERIP/LOADBALANCER
+kubectl expose <DEPLOY / REPLICASET / POD> <NAME> --name=SERVICE_NAME --port=SERVICE_PORT --target-port=SERVICE_PORT --type=CLUSTERIP/LOADBALANCER
 
 kubectl expose <DEPLOY / REPLICASET / POD> <NAME> --name=SERVICE_NAME --port=SERVICE_PORT --type=NODEPORT --nodePort=30090
 
