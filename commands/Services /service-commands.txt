@@ -7,7 +7,8 @@ kubectl expose <DEPLOY / REPLICASET / POD> <NAME> --name=SERVICE_NAME --port=SER
 kubectl expose <DEPLOY / REPLICASET / POD> <NAME> --name=SERVICE_NAME --port=SERVICE_PORT --type=NODEPORT --nodePort=30090
 
 # Create
-kubectl create svc <SERVICE_NAME>
+kubectl create service clusterip my-cs --clusterip="None"
+kubectl create service clusterip my-cs --tcp=5678:8080
 
 # Edit
 kubectl edit svc <SERVICE_NAME>
