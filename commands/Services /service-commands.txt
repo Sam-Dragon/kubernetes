@@ -1,6 +1,11 @@
 # Service
 - basically use for accessing the application
 
+# Expose
+kubectl expose <DEPLOY / REPLICASET / POD> <NAME> --name=SERVICE_NAME --port=SERVICE_PORT --type=CLUSTERIP/LOADBALANCER
+
+kubectl expose <DEPLOY / REPLICASET / POD> <NAME> --name=SERVICE_NAME --port=SERVICE_PORT --type=NODEPORT --nodePort=30090
+
 # Create
 kubectl create svc <SERVICE_NAME>
 
@@ -18,3 +23,4 @@ kubectl describe svc <SERVICE_NAME>
 
 # Logs
 kubectl logs svc <SERVICE_NAME>
+
