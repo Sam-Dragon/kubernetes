@@ -73,4 +73,14 @@ spec:
             name: service2
             port:
               number: 80
+  # Default route if above two urls dont match
+  - http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: service3
+            port:
+              number: 80
 ---
