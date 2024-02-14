@@ -62,22 +62,6 @@ spec:
 save and apply
 kubectl apply -f ingress.yml
 
-> Imperative command
-kubectl create ingress <ingress-name> --rule="host/path=service:port"
-kubectl -n ckad create ingress ingress-test --rule="wear.my-online-store.com/wear*=wear-service:80"
-
-# Edit
-kubectl -n ckad edit ingress ingress-test --rule="wear.my-online-store.com/wear*=wear-service:80"
-
-# Get
-kubectl -n ckad get ingress ingress-test
-
-# Describe
-kubectl -n ckad describe ingress ingress-test
-
-# Delete
-kubectl -n ckad delete ingress ingress-test
-
 ## Ingress Class
 ---
 apiVersion: networking.k8s.io/v1
