@@ -1,2 +1,17 @@
 # Network Polices
 - allows to control traffic to specific pod
+
+# Create
+kubectl create netpol Policy ----
+
+# Edit
+kubectl edit netpol
+
+# Get
+kubectl get netpol
+
+# Describe
+kubectl describe netpol
+
+# Delete
+kubectl delete netpol
