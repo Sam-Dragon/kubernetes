@@ -1,0 +1,17 @@
+# Ingress
+- imperative commands for CRUD operations
+
+# Edit
+kubectl edit ing ingress_test
+
+# Get
+kubectl get ing ingress_test
+
+# Edit
+kubectl describe ing ingress_test
+
+# Edit
+kubectl logs ing ingress_test
+
+# Delete
+kubectl delete ing ingress_test
