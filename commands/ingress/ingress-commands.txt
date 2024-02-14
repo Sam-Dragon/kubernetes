@@ -1,6 +1,9 @@
 # Ingress
 - imperative commands for CRUD operations
 
+# Create
+kubectl create ingress ingress_test --rule="foo.com/bar=svc1:8080,tls=my-cert"
+
 # Edit
 kubectl edit ing ingress_test
 
