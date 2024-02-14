@@ -4,6 +4,9 @@
 # Create
 kubectl create ingress ingress_test --rule="foo.com/bar=svc1:8080,tls=my-cert"
 
+# Two rules
+kubectl create ing ingress-app --rule="/wear=wear-service:8080" --rule="/watch=video-service:8080"
+
 # Edit
 kubectl edit ing ingress_test
 
