@@ -1,7 +1,33 @@
 # Network Policies
 - Yaml format
 
-# Ingress
+# Ingress with Default Deny
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny-ingress
+spec:
+  podSelector: {}
+  policyTypes:
+  - Ingress
+---
+
+# Ingress with all allowed
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-all-ingress
+spec:
+  podSelector: {}
+  ingress:
+  - {}
+  policyTypes:
+  - Ingress
+---
+
+# Ingress with filters
 ---
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
@@ -45,7 +71,33 @@ spec:
       port: 3033
 ---
 
-# Egress
+# Egress with Default Deny
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny-egress
+spec:
+  podSelector: {}
+  policyTypes:
+  - Egress
+---
+
+# Egress with All Allowed
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny-egress
+spec:
+  podSelector: {}
+  policyTypes:
+  - Egress
+  egress:
+  - {}
+---
+
+# Egress with filters
 ---
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
@@ -122,3 +174,24 @@ spec:
     - protocol: TCP
       port: 5978
 ---
+
+# Targeting Range of ports
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: multi-port-egress
+  namespace: default
+spec:
+  podSelector:
+    matchLabels:
+      role: db
+  policyTypes:
+    - Egress
+  egress:
+    - to:
+        - ipBlock:
+            cidr: 10.0.0.0/24
+      ports:
+        - protocol: TCP
+          port: 32000
+          endPort: 32768 # gives range
