@@ -35,3 +35,6 @@ kubectl set env --from=configmap/myconfigmap --prefix=MYSQL_ deployment/myapp
 # Import environment from a secret
 kubectl set env --from=secret/mysecret deployment/myapp
 
+# Remove the environment variable ENV from container 'c1' in all deployment configs
+kubectl set env deployments --all --containers="c1" ENV-
+
