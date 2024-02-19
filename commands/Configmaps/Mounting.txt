@@ -9,9 +9,9 @@ vi file-cm-po.yaml
 ...
 spec:
   containers:
-  envFrom:
-  - configMapRef:
-      name: file-cm
+      envFrom:
+      - configMapRef:
+          name: file-cm
 ...
 kubectl apply -f file-cm-po.yaml
 
