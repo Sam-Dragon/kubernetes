@@ -84,12 +84,13 @@ spec:
     - mountPath: /home
       name: mount-configmaps-volume
       readOnly: true # Property to set read access
-volumes:
-- configMap:
-    name: file-as-key-cm
-    items:
-    - key: SPECIAL_LEVEL
-      path: keys
-  name: mount-configmaps-volume
+  volumes:
+  - name: mount-configmaps-volume
+    configMap:
+      name: file-as-key-cm
+      items:
+      - key: SPECIAL_LEVEL
+        path: keys
+    
 ...
 kubectl apply -f volume-cm-po.yaml
