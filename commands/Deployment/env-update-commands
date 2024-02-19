@@ -4,3 +4,5 @@
 - if key is present it updates else it creates
 kubectl set env deploy nginx APP=COLOUR
 
+# Remove the env from deployment
+kubectl set env deploy nginx APP-
