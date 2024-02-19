@@ -1,5 +1,12 @@
 # Env updates in Deployment
 
+# List all env from pods/deployments/rc
+kubectl set env deploy --all --list
+kubectl set env po --all --list
+
+# List all env from pods/deployments/rc specific
+kubectl set env deploy nginx --list
+
 # Update Env in Deployment
 - if key is present it updates else it creates
 kubectl set env deploy nginx APP=COLOUR
@@ -16,3 +23,4 @@ kubectl set env --from=configmap/myconfigmap --prefix=MYSQL_ deployment/myapp
 
 # Import environment from a secret
 kubectl set env --from=secret/mysecret deployment/myapp
+
