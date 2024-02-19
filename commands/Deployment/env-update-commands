@@ -6,3 +6,9 @@ kubectl set env deploy nginx APP=COLOUR
 
 # Remove the env from deployment
 kubectl set env deploy nginx APP-
+
+# Import Env from configmap
+kubectl set env --from=configmap/myconfigmap --prefix=MYSQL_ deployment/myapp
+
+# Import environment from a secret
+kubectl set env --from=secret/mysecret deployment/myapp
