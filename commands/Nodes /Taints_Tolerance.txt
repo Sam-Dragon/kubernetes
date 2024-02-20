@@ -4,6 +4,9 @@
 > Taint the node
 kubectl taint no rahul-aio-control-plane size=small:NoExecute
 
+> Remove Taint from node
+kubectl taint no rahul-aio-control-plane size-
+
 > Add this to spec section of pod with NoSchedule effect
 tolerations:
 - key: "key1"
