@@ -1,6 +1,12 @@
 # Top Node & Pod
 kubectl top no
+kubectl top no
+kubectl top no -l name=myLabel
+
+kubectl top po --namespace=NAMESPACE
 kubectl top po
+kubectl top po -l name=myLabel
+
 
 # Version of kubernetes
 kubectl version
