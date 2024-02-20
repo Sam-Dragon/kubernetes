@@ -1,0 +1,18 @@
+# Node of the cluster
+- basically servers where the application runs. 
+- shortform is 'no'
+
+# Create
+kubectl create no node1
+
+# Get
+kubectl get no node1
+
+# Edit
+kubectl edit no node1
+
+# Delete
+kubectl delete no node1
+
+# Node is unschedulable
+kubectl cordon foo
