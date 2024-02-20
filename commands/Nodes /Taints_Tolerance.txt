@@ -1,8 +1,11 @@
 # Taints & Tolerance
 - basically fixes the node to the pod, it is exactly opposite to node affinity
 
-> Taint the node
+> Taint the node with key-value-execution
 kubectl taint no rahul-aio-control-plane size=small:NoExecute
+
+> Taint the node with key-execution
+kubectl taint no rahul-aio-control-plane boolean:NoExecute
 
 > Remove Taint from node
 kubectl taint no rahul-aio-control-plane size-
