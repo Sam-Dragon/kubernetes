@@ -1,0 +1,8 @@
+# Version of kubernetes
+kubectl version
+
+# Explain command
+kubectl explain pods.spec.containers
+
+# Find all resources
+kubectl api-resources
