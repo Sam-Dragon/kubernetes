@@ -1,0 +1,13 @@
+# Updates resouces configuration in existing deployment
+
+# Set a deployments nginx container 
+kubectl set resources deployment nginx --limits=cpu=200m,memory=512Mi --requests=cpu=100m,memory=256Mi
+
+# Set a deployments nginx container 
+kubectl set resources deployment nginx -c=nginx --limits=cpu=200m,memory=512Mi
+
+# Remove the resource requests for resources on containers in nginx
+kubectl set resources deployment nginx --limits=cpu=0,memory=0 --requests=cpu=0,memory=0
+
+# Print the result (in yaml format) of updating nginx container limits from a local, without hitting the server
+kubectl set resources -f path/to/file.yaml --limits=cpu=200m,memory=512Mi --local -o yaml
