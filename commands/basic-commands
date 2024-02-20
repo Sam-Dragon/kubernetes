@@ -1,8 +1,20 @@
 # Version of kubernetes
 kubectl version
 
-# Explain command
-kubectl explain pods.spec.containers
+# Cluster Info
+kubectl cluster-info
+kubectl cluster-info dump
+kubectl cluster-info dump --namespaces default,kube-system --output-directory=/path/to/cluster-state
+
+# Version of Api
+kubectl api-versions
 
 # Find all resources
 kubectl api-resources
+
+# Explain command
+kubectl explain pods.spec.containers
+
+# CSR certificate - Approve / deny 
+kubectl certificate approve csr-sqgzp
+kubectl certificate deny csr-sqgzp
