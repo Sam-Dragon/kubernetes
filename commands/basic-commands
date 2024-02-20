@@ -1,3 +1,7 @@
+# Top Node & Pod
+kubectl top no
+kubectl top po
+
 # Version of kubernetes
 kubectl version
 
