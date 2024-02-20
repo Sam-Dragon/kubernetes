@@ -14,11 +14,11 @@ kubectl edit no node1
 # Delete
 kubectl delete no node1
 
+
 # Drain node for maintainance
 kubectl drain foo --force 
 kubectl drain foo --grace-period=900
 kubectl drain foo --grace-period=900 --force
-
 
 # Node is schedulable
 kubectl uncordon foo
