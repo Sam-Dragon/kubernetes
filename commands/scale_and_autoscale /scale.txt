@@ -1,1 +1,6 @@
+# Scale
+- deployment, replica set, replication controller, or stateful set
 
+# Scale 
+kubectl scale --replicas=3 rs/foo
+kubectl scale --replicas=2 deploy/nginx
