@@ -7,7 +7,6 @@ kubectl top po --namespace=NAMESPACE
 kubectl top po
 kubectl top po -l name=myLabel
 
-
 # Version of kubernetes
 kubectl version
 
