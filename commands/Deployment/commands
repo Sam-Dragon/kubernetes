@@ -1,4 +1,10 @@
 # Deployment 
 
 # Create with yaml
+kubectl create --force -f temp.yml
+
+# Edit with yaml
 kubectl replace --force -f temp.yml
+
+# Delete with yaml
+kubectl delete --force -f temp.yml
