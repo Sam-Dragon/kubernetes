@@ -24,8 +24,14 @@ spec:
 ---
 kubectl apply -f nginx-label.yaml
 
+# Create
+kubectl label pod -n ckad nginx-label app=ckad-update
+
 # Edit
 kubectl label pod -n ckad nginx-label app=ckad-update --overwrite
+
+# Remove
+kubectl label pod -n ckad nginx-label app-
 
 > Get all labels
 kubectl get pod --show-labels -n ckad
