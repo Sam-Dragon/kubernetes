@@ -1,1 +1,4 @@
 # Deployment 
+
+# Create with yaml
+kubectl replace --force -f temp.yml
