@@ -1,6 +1,9 @@
 # Scale
 - deployment, replica set, replication controller, or stateful set
 
-# Scale 
+# Scale deployment & rs
 kubectl scale --replicas=3 rs/foo
 kubectl scale --replicas=2 deploy/nginx
+
+# Filter and scale
+kubectl scale --current-replicas=2 --replicas=3 deployment/mysql
