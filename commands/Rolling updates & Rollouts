@@ -23,6 +23,10 @@ kubectl rollout history deploy <DEPLOYMENT NAME> -n <NAMESPACE>
 
 # Upgrade
 > Undo to last depolyment
+
+# Last version
+kubectl rollout undo deploy <DEPLOYMENT>
+
 - Get revision number
 kubectl rollout undo deploy <DEPLOYMENT> --to-revision=<REViSION NUMBER>
 
@@ -37,7 +41,6 @@ kubectl rollout resume deploy/nginx
 
 # Re-start
 kubectl rollout restart deploy/nginx
-
 
 # Deployment Strategy
 1. Recreate - bring all pod down at once and create new pods
