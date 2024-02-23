@@ -1,3 +1,6 @@
+# Get specific modules
+kubectl get po,deploy,rc
+
 # Top Node & Pod
 kubectl top no
 kubectl top no
