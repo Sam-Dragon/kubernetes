@@ -31,6 +31,7 @@ kubectl create sa service-account-1
 kubectl create token service-account-1
 
 ## Services
+-- START HERE
 
 ## Deployments
 > create deployment with replicas & port in namespace = ckad & command date
