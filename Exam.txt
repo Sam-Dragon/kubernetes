@@ -45,6 +45,12 @@ kubectl label pod -n ckad nginx-label app=ckad-update --overwrite
 kubectl get po nginx --show-labels
 kubectl get labels nginx --list
 
+## Selector
+> Search all pods with label app=ckad
+kubectl get pod -l app in (ckad)
+
+> Replace all pods label from app=nginx to tier=fe
+kubectl label pods -l app=nginx tier=fe
 
 ## Environment
 > To set & Remove env variable for existing pods/deploy
