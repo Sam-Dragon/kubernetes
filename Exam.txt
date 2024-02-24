@@ -42,7 +42,7 @@ kubectl label po nginx app=run
 kubectl label pod -n ckad nginx-label app=ckad-update --overwrite
 
 > Get labels
-kubectl get po nginx -o wide
+kubectl get po nginx --show-labels
 kubectl get labels nginx --list
 
 
