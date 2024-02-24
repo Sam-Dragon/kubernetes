@@ -4,6 +4,9 @@
 # Create
 kubectl -n ckad create rolebinding delete-rolebinding --user=smartphyuser --role=delete-role
 
+> Create with group
+kubectl -n ckad create rolebinding delete-rolebinding --user=smartphyuser --role=delete-role --group=group1
+
 > Create with file
 > rolebinding.yml
 ---
