@@ -29,5 +29,5 @@ kubectl logs <POD NAME>
 - warning message will display the names
 
 # Resource Quota
-> To set resource quota on node
-kubectl create quota my-quota --hard=cpu=1,memory=1G,pods=2,services=3,replicationcontrollers=2,resourcequotas=1,secrets=5,persistentvolumeclaims=10
+> resource quota with all parametes & scopes 
+kubectl create quota my-quota --hard=cpu=1,memory=1G,pods=2,services=3,replicationcontrollers=2,resourcequotas=1,secrets=5,persistentvolumeclaims=10 --scopes=BestEffort
