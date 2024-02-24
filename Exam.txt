@@ -1,5 +1,10 @@
 # Ckad exam related
 
+## Configmap
+kubectl create cm literal-config --from-literal="DB_HOST=host.com" --from-literal="DB_PORT=8080"
+kubectl create cm file-config --from-literal="DB_HOST=host.com" --from-file=/configmap.yaml
+kubectl create cm env-config --from-literal="DB_HOST=host.com" --from-env=/configmap.env
+
 ## Deployments
 > create deployment with replicas & port in namespace = ckad & command date
 kubectl create deploy nginx --image=nginx --replicas=3 --port=5678 -n ckad -- date
