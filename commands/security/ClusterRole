@@ -2,7 +2,13 @@
 clusterrole - Always associated with cluster
 
 # Create
-kubectl create clusterrole delete-clusterrole -n ckad --verb="get" --resource=secret
+kubectl create clusterrole delete-clusterrole -n ckad --verb=get,list,watch --resource=secret
+
+> Create for specific pod
+kubectl create clusterrole pod-reader --verb=get --resource=pods --resource-name=readablepod --resource-name=anotherpod
+
+> Create with Aggregation Rule
+kubectl create clusterrole monitoring --aggregation-rule="rbac.example.com/aggregate-to-monitoring=true"
 
 > Create with file
 > clusterrole.yml
