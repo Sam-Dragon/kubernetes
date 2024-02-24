@@ -1,8 +1,8 @@
 # Ckad exam related
 
 ## Deployments
-> create deployment with replicas
-kubectl create deploy nginx --image=nginx --replicas=3
+> create deployment with replicas & port in namespace = ckad & command date
+kubectl create deploy nginx --image=nginx --replicas=3 --port=5678 -n ckad -- date
 
 > Scaling the deployment
 kubectl scale deploy nginx --replicas=2
