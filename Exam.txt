@@ -2,8 +2,20 @@
 
 ## Configmap
 kubectl create cm literal-config --from-literal="DB_HOST=host.com" --from-literal="DB_PORT=8080"
-kubectl create cm file-config --from-literal="DB_HOST=host.com" --from-file=/configmap.yaml
-kubectl create cm env-config --from-literal="DB_HOST=host.com" --from-env=/configmap.env
+kubectl create cm file-config --from-file=/configmap.yaml
+kubectl create cm env-config --from-env-file=/configmap.env
+
+## Secret
+kubectl create secret generic literal-secret --from-literal="DB_NAME=admin" --from-literal="DB_PASS=admin123"
+kubectl create secret generic file-secret --from-file=/secret.yaml
+kubectl create secret generic env-secret --from-env-file=/secret.env
+
+> Create Secret for Docker
+kubectl create secret docker-registry regcred --docker-server=<DOCKER_URL> --docker-username=<DOCKER_USERNAME> --docker-password=<DOCKER_PASSWORD> --docker-email=<DOCKER_EMAIL>
+kubectl create secret docker-registry my-secret --from-file=.dockerconfigjson=path/to/.docker/config.json
+
+> Create Secret for TLS
+kubectl create secret tls my-tls-secret --cert=path/to/cert/file --key=path/to/key/file
 
 ## Deployments
 > create deployment with replicas & port in namespace = ckad & command date
