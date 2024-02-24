@@ -30,6 +30,8 @@ kubectl create secret tls my-tls-secret --cert=path/to/cert/file --key=path/to/k
 kubectl create sa service-account-1
 kubectl create token service-account-1
 
+## Services
+
 ## Deployments
 > create deployment with replicas & port in namespace = ckad & command date
 kubectl create deploy nginx --image=nginx --replicas=3 --port=5678 -n ckad -- date
