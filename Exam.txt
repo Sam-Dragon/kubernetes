@@ -39,3 +39,6 @@ kubectl logs <POD NAME>
 # Resource Quota
 > resource quota with all parametes & scopes 
 kubectl create quota my-quota --hard=cpu=1,memory=1G,pods=2,services=3,replicationcontrollers=2,resourcequotas=1,secrets=5,persistentvolumeclaims=10 --scopes=BestEffort
+
+# Ingress
+kubectl create ingress ingress_test --rule="host.com/context=service:8080,tls=my-cert" --rule="host.com/context=service:8080,tls=secret" --annotation nginx.ingress.kubernetes.io/rewrite-target=/  --default-backend=defaultsvc:http
