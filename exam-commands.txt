@@ -1,5 +1,14 @@
 # Ckad exam related
 
+## Node 
+> Make node schedulable or unschedulable
+kubectl cordon node-1
+kubectl uncordon node-1
+
+> Taint & Untaint
+kubectl taint no control-plane app=run:NoSchedule
+kubectl taint no control-plane app-
+
 ## Configmap
 kubectl create cm literal-config --from-literal="DB_HOST=host.com" --from-literal="DB_PORT=8080"
 kubectl create cm file-config --from-file=/configmap.yaml
