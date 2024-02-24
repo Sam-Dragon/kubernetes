@@ -1,0 +1,26 @@
+# Priority Class
+- alias as "pc"
+
+# Create
+kubectl create priorityclass high-priority --value=1000 --description="high priority"
+
+# Create with global default 
+kubectl create priorityclass default-priority --value=1000 --global-default=true --description="default priority"
+
+# Create a priority class named high-priority that cannot preempt pods with lower priority
+kubectl create priorityclass high-priority --value=1000 --description="high priority" --preemption-policy="Never"
+
+# Edit
+kubectl edit priorityclass <CLASS>
+
+# Get
+kubectl get priorityclass <CLASS>
+
+# Delete
+kubectl delete priorityclass <CLASS>
+
+# Describe
+kubectl describe priorityclass <CLASS>
+
+# Logs
+kubectl logs priorityclass <CLASS>
