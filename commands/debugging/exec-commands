@@ -1,1 +1,5 @@
+# exec
+- gets into the container
 
+# basic
+kubectl exec -it <POD>
