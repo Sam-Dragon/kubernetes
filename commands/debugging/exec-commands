@@ -3,3 +3,16 @@
 
 # basic
 kubectl exec -it <POD>
+
+# with command
+kubectl exec mypod -c ruby-container -- date
+
+# Switch to raw terminal mode; sends stdin to 'bash' in ruby-container from pod mypod # and sends stdout/stderr from 'bash' back to the client
+kubectl exec mypod -c ruby-container -i -t -- bash -il
+
+# Deployment
+kubectl exec deploy/mydeployment -- date
+
+# Service
+kubectl exec svc/myservice -- date
+
