@@ -1,2 +1,23 @@
 # logs
 - fetch the logs of the container
+
+# basic
+kubectl logs nginx
+
+# if multiple containers
+kubectl logs nginx --all-containers=true
+
+# Return snapshot logs from all containers in pods defined by label app=nginx
+kubectl logs -l app=nginx --all-containers=true
+
+# Return snapshot of previous terminated ruby container logs from pod web-1
+kubectl logs -p -c ruby web-1
+
+# Begin streaming the logs of the ruby container in pod web-1
+kubectl logs -f -c ruby web-1
+
+# Tail logs to lines
+kubectl logs --tail=20 nginx
+
+# Get last hour logs
+kubectl logs --since=1h nginx
