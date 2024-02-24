@@ -4,6 +4,10 @@ Role - Always associated with namespace
 # Create
 kubectl create role delete-role -n ckad --verb=get,create,delete --resource=secret
 
+> create role for specific pod
+kubectl create role pod-reader --verb=get --resource=pods --resource-name=readablepod --resource-name=anotherpod
+
+
 > Create with file
 > role.yml
 ---
