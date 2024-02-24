@@ -5,6 +5,8 @@ jobs
 kubectl create job my-job --image=busybox 
 
 > Create with commands
+kubectl create job my-job --image=busybox -- date
+kubectl logs <POD> # this will display date
 
 > Create job from cronjob
 kubectl create job test-job --from=cronjob/a-cronjob
