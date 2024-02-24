@@ -3,6 +3,16 @@
 # CREATE
 kubectl create deployment hello-deployment --image=hello-world -n ckad-namespace
 
+> Create with command
+kubectl create deployment my-dep --image=busybox -- date
+k logs <POD>
+
+> Create with replicas 
+kubectl create deployment my-dep --image=nginx --replicas=3
+
+> Create with port 
+kubectl create deployment my-dep --image=busybox --port=5701
+
 # EDIT
 kubectl edit deployment hello-deployment -n ckad-namespace
 
