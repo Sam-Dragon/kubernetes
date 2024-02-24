@@ -1,5 +1,24 @@
 # Deployment 
 
+# CREATE
+kubectl create deployment hello-deployment --image=hello-world -n ckad-namespace
+
+# EDIT
+kubectl edit deployment hello-deployment -n ckad-namespace
+
+# GET 
+kubectl get deployments [Or deployment Or deploy]
+
+** [with namespace]
+kubectl get deployments -n ckad-namespace
+
+# DELETE 
+kubectl delete deploy hello-deployment -n ckad-namespace
+
+> DESCRIBE / SCALE [**SPECIAL**]
+kubectl describe deployment hello-deployment -n ckad-namespace
+
+## YAML
 # Create with yaml
 kubectl create --force -f temp.yml
 
