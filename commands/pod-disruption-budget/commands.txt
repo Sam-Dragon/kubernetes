@@ -1,0 +1,11 @@
+# Poddisruptionbudget
+- alias as "pdb"
+- It ensures pods are available at given point of time
+
+# Create
+kubectl create poddisruptionbudget my-pdb --selector=app=rails --min-unavailable=1
+
+> Create with %
+kubectl create pdb my-pdb --selector=app=nginx --min-available=50%
+
+  
