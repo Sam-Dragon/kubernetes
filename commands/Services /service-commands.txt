@@ -7,8 +7,22 @@ kubectl expose <DEPLOY / REPLICASET / POD> <NAME> --name=SERVICE_NAME --port=SER
 kubectl expose <DEPLOY / REPLICASET / POD> <NAME> --name=SERVICE_NAME --port=SERVICE_PORT --type=NODEPORT --nodePort=30090
 
 # Create
-kubectl create service clusterip my-cs --clusterip="None"
+
+> Cluster Ip
 kubectl create service clusterip my-cs --tcp=5678:8080
+
+> Load Balancer
+kubectl create service loadbalancer my-lbs --tcp=5678:8080
+
+> External Name 
+kubectl create service externalname my-ns --external-name bar.com
+
+> NodePort
+kubectl create service nodeport my-ns --tcp=5678:8080
+
+> Headless Service
+kubectl create service clusterip my-cs --clusterip="None"
+
 
 # Edit
 kubectl edit svc <SERVICE_NAME>
