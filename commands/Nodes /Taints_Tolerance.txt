@@ -5,7 +5,7 @@
 kubectl taint no rahul-aio-control-plane size=small:NoExecute
 
 > Taint the node with key and effect
-kubectl taint no rahul-aio-control-plane boolean:NoExecute
+kubectl taint no rahul-aio-control-plane key:NoExecute
 
 > Taint the node matching labels
 kubectl taint node -l myLabel=X  dedicated=foo:PreferNoSchedule
