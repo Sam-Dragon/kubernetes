@@ -4,8 +4,30 @@
 # Create
 kubectl create ingress ingress_test --rule="foo.com/bar=svc1:8080,tls=my-cert"
 
-# Two rules
+# Create with two rules
 kubectl create ing ingress-app --rule="/wear=wear-service:8080" --rule="/watch=video-service:8080"
+
+# Crete without host
+kubectl create ingress catch-all --class=otheringress --rule="/path=svc:port"
+
+# Create with Annotation [Default also can be defined] 
+kubectl create ingress annotated --class=default --rule="foo.com/bar=svc:port" \
+--annotation nginx.ingress.kubernetes.io/rewrite-target=/
+
+# Create with Multiple paths
+kubectl create ingress multipath --class=default --rule="foo.com/=svc:port" --rule="foo.com/admin/=svcadmin:portadmin"
+
+# Create with multiple hosts and the pathType as Prefix
+kubectl create ingress ingress1 --class=default --rule="foo.com/path*=svc:8080" --rule="bar.com/admin*=svc2:http"
+
+# Create an ingress with TLS enabled using the default ingress certificate and different path types
+kubectl create ingress ingtls --class=default --rule="foo.com/=svc:https,tls" --rule="foo.com/path/subpath*=othersvc:8080"
+
+# Create an ingress with TLS enabled using a specific secret and pathType as Prefix
+kubectl create ingress ingsecret --class=default --rule="foo.com/*=svc:8080,tls=secret1"
+
+# Create an ingress with a default backend
+kubectl create ingress ingdefault --class=default --default-backend=defaultsvc:http --rule="foo.com/*=svc:8080,tls=secret1"
 
 # Edit
 kubectl edit ing ingress_test
