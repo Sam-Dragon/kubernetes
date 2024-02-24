@@ -4,6 +4,11 @@ jobs
 # Create
 kubectl create job my-job --image=busybox 
 
+> Create with commands
+
+> Create job from cronjob
+kubectl create job test-job --from=cronjob/a-cronjob
+
 # Edit
 kubectl edit job my-job 
 
@@ -18,6 +23,3 @@ kubectl logs job my-job
 
 # Delete
 kubectl delete job my-job  
-
-# job from cronjob
-kubectl create job test-job --from=cronjob/a-cronjob
