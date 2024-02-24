@@ -1,0 +1,11 @@
+# Describe
+- gives all information about the container
+
+# basic
+kubectl describe po <POD>
+
+# with label
+kubectl describe po -l name=myLabel
+
+# Node
+kubectl describe nodes kubernetes-node-emt8.c.myproject.internal
