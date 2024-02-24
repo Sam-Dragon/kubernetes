@@ -35,18 +35,26 @@ kubectl set sa deploy nginx service-account-1
 > create pods with labels
 kubectl run nginx --image=nginx --labels="app=run"
 
+> Set label to existing pod
+kubectl label po nginx app=run
+
+> Update the label
+kubectl label pod -n ckad nginx-label app=ckad-update --overwrite
+
 > Get labels
 kubectl get po nginx -o wide
 kubectl get labels nginx --list
 
-> Import Env from configmap / secret [this will be read as individual keys in deploy/pod]
-kubectl set env --from=configmap/myconfigmap deployment/myapp
-kubectl set env --from=secret/mysecret deployment/myapp
 
 ## Environment
 > To set & Remove env variable for existing pods/deploy
 kubectl set env deploy nginx app=nginx
 kubectl set env deploy nginx app-
+
+> Import Env from configmap / secret [this will be read as individual keys in deploy/pod]
+kubectl set env --from=configmap/myconfigmap deployment/myapp
+kubectl set env --from=secret/mysecret deployment/myapp
+
 
 ## Debug
 > To find out the names of container in multi container pod
