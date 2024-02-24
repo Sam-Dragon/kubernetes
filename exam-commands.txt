@@ -2,8 +2,8 @@
 
 ## Node 
 > Make node schedulable or unschedulable
-kubectl cordon node-1
-kubectl uncordon node-1
+kubectl cordon control-plane
+kubectl uncordon control-plane
 
 > Taint & Untaint
 kubectl taint no control-plane app=run:NoSchedule
@@ -26,6 +26,10 @@ kubectl create secret docker-registry my-secret --from-file=.dockerconfigjson=pa
 > Create Secret for TLS
 kubectl create secret tls my-tls-secret --cert=path/to/cert/file --key=path/to/key/file
 
+## Service Accounts
+kubectl create sa service-account-1
+kubectl create token service-account-1
+
 ## Deployments
 > create deployment with replicas & port in namespace = ckad & command date
 kubectl create deploy nginx --image=nginx --replicas=3 --port=5678 -n ckad -- date
@@ -47,7 +51,7 @@ kubectl set sa deploy nginx service-account-1
 kubectl create quota my-quota --hard=cpu=1,memory=1G,pods=2,services=3,replicationcontrollers=2,resourcequotas=1,secrets=5,persistentvolumeclaims=10 --scopes=BestEffort
 
 # Ingress
-kubectl create ingress ingress_test --rule="host.com/context=service:8080,tls=my-cert" --rule="host.com/context=service:8080,tls=secret" --annotation nginx.ingress.kubernetes.io/rewrite-target=/  --default-backend=defaultsvc:http
+kubectl create ingress ingress_test --rule="host.com/context=service:8080,tls=my-cert" --rule="host.com/context=service:8080,tls=file-secret" --annotation nginx.ingress.kubernetes.io/rewrite-target=/  --default-backend=defaultsvc:http
 
 ## Environment
 > To set & Remove env variable for existing pods/deploy
@@ -55,8 +59,8 @@ kubectl set env deploy nginx app=nginx
 kubectl set env deploy nginx app-
 
 > Import Env from configmap / secret [this will be read as individual keys in deploy/pod]
-kubectl set env --from=configmap/myconfigmap deployment/myapp
-kubectl set env --from=secret/mysecret deployment/myapp
+kubectl set env --from=configmap/literal-config deployment/myapp
+kubectl set env --from=secret/literal-secret deployment/myapp
 
 ## Labels
 > create pods with labels
