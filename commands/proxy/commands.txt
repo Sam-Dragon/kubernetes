@@ -1,0 +1,16 @@
+# Proxy 
+- Application-level gateway between localhost and the Kubernetes API server
+
+# run
+kubectl proxy --port=8080
+O/P [Copy the port from here]
+  Starting to serve on 127.0.0.1:8001
+  ....
+  
+curl http://localhost:8001
+
+# with prefix
+kubectl proxy --api-prefix=/
+
+> with specific prefix  
+kubectl proxy --api-prefix=/k8s-api
