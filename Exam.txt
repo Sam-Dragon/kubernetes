@@ -1,0 +1,33 @@
+# Ckad exam related
+
+## Deployments
+> create deployment with replicas
+kubectl create deploy nginx --image=nginx --replicas=3
+
+> Scaling the deployment
+kubectl scale deploy nginx --replicas=2
+
+> To set & remove resources 
+kubectl set resources deploy nginx --requests="cpu=1,memory=100Mi" --limits="cpu=2,memory=1G" 
+kubectl set resources  deploy nginx --requests="cpu=0,memory=0" --limits="cpu=0,memory=0"
+
+> To set & remove service account
+kubectl set sa deploy nginx service-account-1
+
+## Labels
+> create pods with labels
+kubectl run nginx --image=nginx --labels="app=run"
+
+## Environment
+> To set & Remove env variable for existing pods/deploy
+kubectl set env deploy nginx app=nginx
+kubectl set env deploy nginx app-
+
+## Debug
+> To find out the names of container in multi container pod
+kubectl logs <POD NAME>
+- warning message will display the names
+
+# Resource Quota
+> To set resource quota on node
+kubectl create quota my-quota --hard=cpu=1,memory=1G,pods=2,services=3,replicationcontrollers=2,resourcequotas=1,secrets=5,persistentvolumeclaims=10
