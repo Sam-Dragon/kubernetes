@@ -107,3 +107,7 @@ kubectl set image deploy/<DEPLOYMENT_NAME> <CONTAINER>=<IMAGE> -n ckad
 
 > Print Environment variables
  kubectl exec -it nginx -- printenv
+
+> Find container names in multi-container pod
+kubectl logs <POD>
+-- This will give warning with container names
