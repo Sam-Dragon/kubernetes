@@ -21,8 +21,10 @@ kubectl create secret tls my-tls-secret --cert=path/to/cert/file --key=path/to/k
 > create deployment with replicas & port in namespace = ckad & command date
 kubectl create deploy nginx --image=nginx --replicas=3 --port=5678 -n ckad -- date
 
-> Scaling the deployment
+> Scaling & Auto-scaling deployment
 kubectl scale deploy nginx --replicas=2
+kubectl autoscale deploy nginx --min=2 --max=10 --cpu-percent=80
+kubectl scale --current-replicas=2 --replicas=3 deployment/mysql # Filter & Scale
 
 > To set & remove resources 
 kubectl set resources deploy nginx --requests="cpu=1,memory=100Mi" --limits="cpu=2,memory=1G" 
@@ -31,16 +33,30 @@ kubectl set resources  deploy nginx --requests="cpu=0,memory=0" --limits="cpu=0,
 > To set & remove service account
 kubectl set sa deploy nginx service-account-1
 
+# Resource Quota
+> resource quota with all parametes & scopes 
+kubectl create quota my-quota --hard=cpu=1,memory=1G,pods=2,services=3,replicationcontrollers=2,resourcequotas=1,secrets=5,persistentvolumeclaims=10 --scopes=BestEffort
+
+# Ingress
+kubectl create ingress ingress_test --rule="host.com/context=service:8080,tls=my-cert" --rule="host.com/context=service:8080,tls=secret" --annotation nginx.ingress.kubernetes.io/rewrite-target=/  --default-backend=defaultsvc:http
+
+## Environment
+> To set & Remove env variable for existing pods/deploy
+kubectl set env deploy nginx app=nginx
+kubectl set env deploy nginx app-
+
+> Import Env from configmap / secret [this will be read as individual keys in deploy/pod]
+kubectl set env --from=configmap/myconfigmap deployment/myapp
+kubectl set env --from=secret/mysecret deployment/myapp
+
 ## Labels
 > create pods with labels
 kubectl run nginx --image=nginx --labels="app=run"
 
-> Set & remove label to existing pod
+> Set, Edit & remove label to existing pod
 kubectl label po nginx app=run
+kubectl label pod nginx app=ckad-update --overwrite
 kubectl label po nginx app-
-
-> Update the label
-kubectl label pod -n ckad nginx-label app=ckad-update --overwrite
 
 > Get labels
 kubectl get po nginx --show-labels
@@ -53,24 +69,15 @@ kubectl get pod -l app in (ckad)
 > Replace all pods label from app=nginx to tier=fe
 kubectl label pods -l app=nginx tier=fe
 
-## Environment
-> To set & Remove env variable for existing pods/deploy
-kubectl set env deploy nginx app=nginx
-kubectl set env deploy nginx app-
-
-> Import Env from configmap / secret [this will be read as individual keys in deploy/pod]
-kubectl set env --from=configmap/myconfigmap deployment/myapp
-kubectl set env --from=secret/mysecret deployment/myapp
-
+## Annotations
+> Set & Remove Annotations
+kubectl annotate po foo description='my frontend'
+kubectl annotate po foo description='my pod' --overwrite
+kubectl annotate po foo description-
 
 ## Debug
 > To find out the names of container in multi container pod
 kubectl logs <POD NAME>
 - warning message will display the names
 
-# Resource Quota
-> resource quota with all parametes & scopes 
-kubectl create quota my-quota --hard=cpu=1,memory=1G,pods=2,services=3,replicationcontrollers=2,resourcequotas=1,secrets=5,persistentvolumeclaims=10 --scopes=BestEffort
 
-# Ingress
-kubectl create ingress ingress_test --rule="host.com/context=service:8080,tls=my-cert" --rule="host.com/context=service:8080,tls=secret" --annotation nginx.ingress.kubernetes.io/rewrite-target=/  --default-backend=defaultsvc:http
