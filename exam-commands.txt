@@ -104,4 +104,6 @@ kubectl annotate po foo description-
 kubectl logs <POD NAME>
 - warning message will display the names
 
-
+## Context
+kubectl config get-contexts
+kubectl config set-context --current --namespace=ckad
