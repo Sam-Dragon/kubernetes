@@ -143,5 +143,10 @@ helm repo list
 helm search hub <KEYWORD>
 helm search repo <KEYWORD>
 
-# Poddisruptionbudget  
+## Port forward
+kubectl port-forward deploy nginx 5000 6000
+kubectl port-forward deploy nginx 5000:6000 --address localhost
+kubectl port-forward pod/mypod :5000
+
+## Poddisruptionbudget  
 kubectl create pdb my-pdb --selector=app=nginx --min-available=50% --min-unavailable=1
