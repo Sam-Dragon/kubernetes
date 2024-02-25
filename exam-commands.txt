@@ -202,6 +202,20 @@ helm repo list
 helm search hub <KEYWORD>
 helm search repo <KEYWORD>
 
+## Role, ClusterRole, RoleBinding, ClusterRoleBinding
+kubectl create role admin --verb=list,get,create --resource=secret
+kubectl create role pod-reader --verb=get --resource=pods --resource-name=readablepod --resource-name=anotherpod   # Specific pod role
+
+kubectl create rolebinding userrolebinding --user=admin --role=admin
+kubectl create rolebinding delete-rolebinding --user=admin --role=admin --group=admin-group
+
+kubectl create clusterrole cluster-admin --verb=list,get,create --resource=secret
+kubectl create clusterrole pod-reader --verb=get --resource=pods --resource-name=readablepod --resource-name=anotherpod   # Specific pod role
+kubectl create clusterrole monitoring --aggregation-rule="rbac.example.com/aggregate-to-monitoring=true"    # With Rule
+
+kubectl create clusterrolebinding userrolebinding --user=admin --clusterrole=admin
+kubectl create clusterrolebinding delete-rolebinding --user=admin --clusterrole=admin --group=admin-group
+
 ## Port forward
 kubectl port-forward deploy nginx 5000 6000
 kubectl port-forward deploy nginx 5000:6000 --address localhost
