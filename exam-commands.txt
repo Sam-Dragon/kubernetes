@@ -115,6 +115,10 @@ kubectl exec it nginx-pod -- bash (OR) kubectl exec it nginx-pod -- sh
 kubectl exec -it nginx-pod -c nginx  # Read logs of one of the container
 kubectl exec mypod -c ruby-container -- printenv
 
+> Copy [Try more with this]
+kubectl cp <some-namespace>/<some-pod>:/tmp/foo /tmp/bar
+tar cf - /tmp/foo | kubectl exec -i -n <some-namespace> <some-pod> -- tar xf - -C /tmp/bar
+
 ## Resource Quota
 > resource quota with all parametes & scopes 
 kubectl create quota my-quota --hard=cpu=1,memory=1G,pods=2,services=3,replicationcontrollers=2,resourcequotas=1,secrets=5,persistentvolumeclaims=10 --scopes=BestEffort
