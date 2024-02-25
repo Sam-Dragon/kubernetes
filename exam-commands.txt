@@ -57,12 +57,23 @@ kubectl set resources  deploy nginx --requests="cpu=0,memory=0" --limits="cpu=0,
 > To set & remove service account
 kubectl set sa deploy nginx service-account-1
 
-# Resource Quota
+## Resource Quota
 > resource quota with all parametes & scopes 
 kubectl create quota my-quota --hard=cpu=1,memory=1G,pods=2,services=3,replicationcontrollers=2,resourcequotas=1,secrets=5,persistentvolumeclaims=10 --scopes=BestEffort
 
-# Ingress
+## Ingress
 kubectl create ingress ingress_test --rule="host.com/context=service:8080,tls=my-cert" --rule="host.com/context=service:8080,tls=file-secret" --annotation nginx.ingress.kubernetes.io/rewrite-target=/  --default-backend=defaultsvc:http
+
+## Jobs
+kubectl create job day-job --image=nginx 
+kubectl create job my-job --image=busybox -- date
+
+> Create job from cronjob
+kubectl create job test-job --from=cronjob/a-cronjob
+
+## Cron Jobs
+kubectl create cj day-job --image=nginx --schedule="*/1 * * * *"
+kubectl create cronjob my-job --image=busybox --schedule="*/1 * * * *" -- date
 
 ## Environment
 > To set & Remove env variable for existing pods/deploy
