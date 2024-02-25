@@ -1,10 +1,17 @@
 # Ckad exam related
 
+# Find all resources one show
+kubectl get po,svc,deploy
+kubectl get all
+
 ## Namespace
 kubectl create ns my-ns 
 
 ## Node 
 > Make node schedulable or unschedulable
+kubectl get no -o wide
+
+> Schedule OR Unschedule Node
 kubectl cordon control-plane
 kubectl uncordon control-plane
 
@@ -97,6 +104,10 @@ kubectl replace -f pod.yml --force --grace-period=0
 
 > Fetch Ip and Node
 kubectl get po -o wide
+
+> View
+kubectl get po nginx -o yaml
+kubectl get po nginx -o json
 
 ## Debug
 > Describe
