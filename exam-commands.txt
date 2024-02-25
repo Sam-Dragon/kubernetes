@@ -75,8 +75,11 @@ kubectl scale --current-replicas=2 --replicas=3 deployment/mysql # Filter & Scal
 kubectl set resources deploy nginx --requests="cpu=1,memory=100Mi" --limits="cpu=2,memory=1G" 
 kubectl set resources  deploy nginx --requests="cpu=0,memory=0" --limits="cpu=0,memory=0"
 
-> To set & remove service account
+> To set service account
 kubectl set sa deploy nginx service-account-1
+
+# Pods
+kubect run nginx --image=nginx --labels=app=run
 
 ## Resource Quota
 > resource quota with all parametes & scopes 
@@ -108,6 +111,15 @@ kubectl set env --from=secret/literal-secret deployment/myapp
 ## Labels
 > create pods with labels
 kubectl run nginx --image=nginx --labels="app=run"
+
+> create pod along with service
+kubectl run nginx --image=nginx --expose=false 
+
+> create pod along with service
+kubectl run nginx --image=nginx --serviceaccount='service-user-account' 
+
+> create pod with annotations
+kubectl run nginx --image=nginx -n ckad-namespace --annotations=[nginx=/] 
 
 > Set, Edit & remove label to existing pod
 kubectl label po nginx app=run
