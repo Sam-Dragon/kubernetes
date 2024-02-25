@@ -107,3 +107,24 @@ kubectl logs <POD NAME>
 ## Context
 kubectl config get-contexts
 kubectl config set-context --current --namespace=ckad
+
+## helm
+helm install <PACKAGE>
+helm uninstall <PACKAGE>
+helm upgrade <PACKAGE>
+helm rollback <PACKAGE>
+
+> Download chart from existing repo
+helm pull --untar bitnami/apache
+
+> Install & UnInstall repo
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm uninstall bravo bitnami/drupal 
+
+> List
+helm list
+helm repo list
+
+> Search
+helm search hub <KEYWORD>
+helm search repo <KEYWORD>
