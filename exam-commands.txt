@@ -142,3 +142,6 @@ helm repo list
 > Search
 helm search hub <KEYWORD>
 helm search repo <KEYWORD>
+
+# Poddisruptionbudget  
+kubectl create pdb my-pdb --selector=app=nginx --min-available=50% --min-unavailable=1
