@@ -44,6 +44,24 @@ kubectl create service clusterip my-cs --clusterip="None"
 kubectl expose deploy nginx --name=nginx-svc --port=6379 --target-port=6666 --type=ClusterIP 
 kubectl expose po nginx --name=nginx-service --port=8000 --nodePort=8888 --type=NodePort
 
+## Rolling updates & Rollouts
+> Status, History & Undo
+kubectl rollout status deploy nginx
+kubectl rollout history deploy nginx
+kubectl rollout undo deploy nginx
+
+> Search / Undo to specific version
+kubectl rollout history deploy nginx --to-revision=1
+kubectl rollout undo deploy nginx --to-revision=2
+
+> Pause, Resume & Restart
+kubectl rollout pause deploy nginx
+kubectl rollout resume deploy nginx
+kubectl rollout restart deploy nginx
+
+## Replicasets
+kubectl scale rs cassandra-replicas --replicas=2
+
 ## Deployments
 > create deployment with replicas & port in namespace = ckad & command date
 kubectl create deploy nginx --image=nginx --replicas=3 --port=5678 -n ckad -- date
