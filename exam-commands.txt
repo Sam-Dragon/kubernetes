@@ -31,7 +31,15 @@ kubectl create sa service-account-1
 kubectl create token service-account-1
 
 ## Services
--- START HERE
+kubectl create service clusterip my-cs --tcp=5678:8080
+kubectl create service loadbalancer my-lbs --tcp=5678:8080
+kubectl create service externalname my-ns --external-name bar.com
+kubectl create service nodeport my-ns --tcp=5678:8080
+kubectl create service clusterip my-cs --clusterip="None"
+
+> Create services for already created deploy
+kubectl expose deploy nginx --name=nginx-svc --port=6379 --target-port=6666 --type=ClusterIP 
+kubectl expose po nginx --name=nginx-service --port=8000 --nodePort=8888 --type=NodePort
 
 ## Deployments
 > create deployment with replicas & port in namespace = ckad & command date
