@@ -98,10 +98,22 @@ kubectl replace -f pod.yml --force --grace-period=0
 > Fetch Ip and Node
 kubectl get po -o wide
 
-> Debug
+## Debug
+> Describe
 kubectl describe po nginx-pod
+kubectl describe po nginx-pod -l app=nginx
+
+> Logs
 kubectl logs nginx-pod
-kubectl exec it nginx-po -- bash (OR) kubectl exec it nginx-po -- sh
+kubectl logs nginx-pod --all-containers=true
+kubectl logs nginx-pod -p   # Previous logs
+kubectl logs nginx-pod --tail=100  # Read 100 lines
+kubectl logs nginx-pod --since=1h  # Last 1hr logs
+
+> Exec
+kubectl exec it nginx-pod -- bash (OR) kubectl exec it nginx-pod -- sh
+kubectl exec -it nginx-pod -c nginx  # Read logs of one of the container
+kubectl exec mypod -c ruby-container -- printenv
 
 ## Resource Quota
 > resource quota with all parametes & scopes 
