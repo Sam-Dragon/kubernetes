@@ -1,5 +1,8 @@
 # Ckad exam related
 
+## Namespace
+kubectl create ns my-ns 
+
 ## Node 
 > Make node schedulable or unschedulable
 kubectl cordon control-plane
