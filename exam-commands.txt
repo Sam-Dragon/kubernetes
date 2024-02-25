@@ -148,5 +148,10 @@ kubectl port-forward deploy nginx 5000 6000
 kubectl port-forward deploy nginx 5000:6000 --address localhost
 kubectl port-forward pod/mypod :5000
 
+## Proxy
+kubectl proxy --port=5000
+kubectl proxy --api-prefix=/
+kubectl proxy --api-prefix=/k8s-api
+
 ## Poddisruptionbudget  
 kubectl create pdb my-pdb --selector=app=nginx --min-available=50% --min-unavailable=1
