@@ -1,1 +1,48 @@
+-- POD LEVEL --
+---
+spec:
+  serviceAccountName: xyz
+---
 
+> If you dont want to specify default service account
+---
+spec:
+  automountServiceAccountToken: false
+---
+
+> If you want to pull sa secret token
+---
+spec:
+  imagePullSecrets: <SECRET_NAME>
+---
+
+> Manullay create Long Live Token
+...
+apiVersion: v1
+kind: Secret
+metadata:
+  name: build-robot-secret
+  annotations:
+    kubernetes.io/service-account.name: build-robot
+type: kubernetes.io/service-account-token
+...
+
+# SA with token projection
+---
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    volumeMounts:
+    - mountPath: /var/run/secrets/tokens
+      name: vault-token
+  serviceAccountName: build-robot
+  volumes:
+  - name: vault-token
+    projected:
+      sources:
+      - serviceAccountToken:
+          path: vault-token
+          expirationSeconds: 7200
+          audience: vault
+---
