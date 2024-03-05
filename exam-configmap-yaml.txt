@@ -1,7 +1,6 @@
 # Yaml related configurations
 
 # POD
-
 # ConfigMap 
 
 > Load complete configmap
