@@ -1,0 +1,5 @@
+# Yaml configurations
+
+# Configmap
+https://github.com/Sam-Dragon/kubernetes/blob/db9f465159c4f48990fdfec01717d105b583a1c1/commands/Configmaps/Mounting.txt
+
