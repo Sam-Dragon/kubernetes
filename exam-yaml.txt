@@ -1,1 +1,43 @@
 # Yaml related configurations
+
+# POD
+
+# ConfigMap 
+
+> Load complete configmap
+...
+spec:
+  containers:
+      envFrom:
+      - configMapRef:
+          name: file-cm
+...
+
+> Load specific configmap with optional parameter for field
+...
+spec:
+  containers:
+  command: ["/bin/sh", "-c", "echo $(color)"] # Read configmap env variable
+  env:
+  - name: NAME_KEY
+    valueFrom:
+      configMapKeyRef:
+        key: name
+        name: env-cm
+        optional: true # mark the variable as optional
+...
+
+> Load configmap as volume
+spec:
+  containers:
+    ...
+    volumeMounts:
+    - mountPath: /home
+      name: mount-configmaps-volume
+      readOnly: true # Property to set read access
+volumes:
+- configMap:
+    defaultMode: 420
+    name: file-as-key-cm
+  name: mount-configmaps-volume
+...
