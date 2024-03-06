@@ -4,6 +4,9 @@ resourcequotas shortform is 'quota'
 # Create
 kubectl create quota my-quota --hard=cpu=1,memory=1G,pods=2,services=3,replicationcontrollers=2,resourcequotas=1,secrets=5,persistentvolumeclaims=10
 
+# Quota with options
+kubectl create quota my-rq --namespace=one --hard=requests.cpu=1,requests.memory=1Gi,limits.cpu=2,limits.memory=2Gi
+
 > Create with scopes
 kubectl create quota best-effort --hard=pods=100 --scopes=BestEffort
 
