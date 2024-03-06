@@ -1,0 +1,10 @@
+# All shortcuts required to save time 
+
+alias k=kubectl
+export dry="--dry-run=client -o yaml"
+export force="--force --grace-period=0"
+
+# Usage
+k get po
+k run nginx --image=nginx $dry > 1.yml
+k delete po nginx $force
