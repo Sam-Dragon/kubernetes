@@ -134,6 +134,10 @@ tar cf - /tmp/foo | kubectl exec -i -n <some-namespace> <some-pod> -- tar xf - -
 > resource quota with all parametes & scopes 
 kubectl create quota my-quota --hard=cpu=1,memory=1G,pods=2,services=3,replicationcontrollers=2,resourcequotas=1,secrets=5,persistentvolumeclaims=10 --scopes=BestEffort
 
+> Create Quota with requests & limits
+kubectl create quota my-rq --namespace=one --hard=requests.cpu=1,requests.memory=1Gi,limits.cpu=2,limits.memory=2Gi
+
+
 ## Ingress
 kubectl create ingress ingress_test --rule="host.com/context=service:8080,tls=my-cert" --rule="host.com/context=service:8080,tls=file-secret" --annotation nginx.ingress.kubernetes.io/rewrite-target=/  --default-backend=defaultsvc:http
 
