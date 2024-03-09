@@ -1,7 +1,11 @@
 # Yaml configurations
 
 ## Core Concepts
+# Limit Range
 https://github.com/Sam-Dragon/kubernetes/blob/21d62d246adc7748db2cd2ba47fa2ed0367e6a7d/commands/namespace/mem-cpu-limit-range.txt
+
+# QUota
+https://github.com/Sam-Dragon/kubernetes/blob/2829c51a2dee6d88e00b6431ac247004f02d3a70/commands/namespace/mem-cpu-resource-quota
 
 ## Configuration
 # Configmap
