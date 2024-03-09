@@ -16,6 +16,9 @@ https://github.com/Sam-Dragon/kubernetes/blob/master/commands/ServiceAccounts/Mo
 # Tolerations
 https://github.com/Sam-Dragon/kubernetes/blob/db9f465159c4f48990fdfec01717d105b583a1c1/commands/Nodes%20/Taints_Tolerance.txt
 
+# Node Affinity
+https://github.com/Sam-Dragon/kubernetes/tree/21d62d246adc7748db2cd2ba47fa2ed0367e6a7d/commands/Node%20Affinity%20
+
 ## Observability
 # Readiness & Liveliness Probes 
 https://github.com/Sam-Dragon/kubernetes/blob/21d62d246adc7748db2cd2ba47fa2ed0367e6a7d/commands/Readiness%20%26%20Liveliness%20Probes
