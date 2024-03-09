@@ -197,9 +197,18 @@ kubectl config get-contexts
 kubectl config set-context --current --namespace=ckad
 
 ## helm
+helm create chart-test
+
 helm install <PACKAGE>
+
+> With replicas
+helm install mynode bitnami/node --set replicaCount=5
+
 helm uninstall <PACKAGE>
+
 helm upgrade <PACKAGE>
+helm upgrade -f myvalues.yaml -f override.yaml redis ./redis
+
 helm rollback <PACKAGE>
 
 > Download chart from existing repo
@@ -216,6 +225,12 @@ helm repo list
 > Search
 helm search hub <KEYWORD>
 helm search repo <KEYWORD>
+
+> View
+helm show values bitnami/node
+
+> Remove
+helm repo remove <REPO>
 
 ## Role, ClusterRole, RoleBinding, ClusterRoleBinding
 kubectl create role admin --verb=list,get,create --resource=secret
