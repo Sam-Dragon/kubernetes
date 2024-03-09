@@ -14,3 +14,12 @@ https://github.com/Sam-Dragon/kubernetes/tree/master/commands/state-persistance
 
 # Service Account
 https://github.com/Sam-Dragon/kubernetes/blob/master/commands/ServiceAccounts/Mounting.txt
+
+# Services
+https://github.com/Sam-Dragon/kubernetes/blob/21d62d246adc7748db2cd2ba47fa2ed0367e6a7d/commands/Services%20/Mounting.txt
+
+# Network Policies
+https://github.com/Sam-Dragon/kubernetes/blob/21d62d246adc7748db2cd2ba47fa2ed0367e6a7d/commands/network-policies/policies
+
+# Ingress
+https://github.com/Sam-Dragon/kubernetes/blob/b58bb63990cc09ca41d08386929e1336df4c3986/commands/ingress/Mounting.txt
