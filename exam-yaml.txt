@@ -13,11 +13,17 @@ https://github.com/Sam-Dragon/kubernetes/blob/master/commands/Secret/
 # Service Account
 https://github.com/Sam-Dragon/kubernetes/blob/master/commands/ServiceAccounts/Mounting.txt
 
+# Resource
+https://github.com/Sam-Dragon/kubernetes/blob/41af566adf9aabe569bf9e6dfc56c07cf1c5ab87/commands/Resource/Mounting.txt
+
 # Tolerations
 https://github.com/Sam-Dragon/kubernetes/blob/db9f465159c4f48990fdfec01717d105b583a1c1/commands/Nodes%20/Taints_Tolerance.txt
 
 # Node Affinity
 https://github.com/Sam-Dragon/kubernetes/tree/21d62d246adc7748db2cd2ba47fa2ed0367e6a7d/commands/Node%20Affinity%20
+
+## Multi Container Pods
+https://github.com/Sam-Dragon/kubernetes/tree/41af566adf9aabe569bf9e6dfc56c07cf1c5ab87/commands/multi-container
 
 ## Observability
 # Readiness & Liveliness Probes 
