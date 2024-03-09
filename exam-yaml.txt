@@ -29,6 +29,11 @@ https://github.com/Sam-Dragon/kubernetes/tree/41af566adf9aabe569bf9e6dfc56c07cf1
 # Readiness & Liveliness Probes 
 https://github.com/Sam-Dragon/kubernetes/blob/21d62d246adc7748db2cd2ba47fa2ed0367e6a7d/commands/Readiness%20%26%20Liveliness%20Probes
 
+## POD Design
+# Jobs & Cron Jobs
+https://github.com/Sam-Dragon/kubernetes/blob/ee09d1b5110389ec10b8792b6b75df33153bfcc6/commands/jobs_cronjobs%20/jobs.txt
+https://github.com/Sam-Dragon/kubernetes/blob/ee09d1b5110389ec10b8792b6b75df33153bfcc6/commands/jobs_cronjobs%20/cronjobs.txt
+
 ## Service And Networking
 # Services
 https://github.com/Sam-Dragon/kubernetes/blob/21d62d246adc7748db2cd2ba47fa2ed0367e6a7d/commands/Services%20/Mounting.txt
