@@ -1,5 +1,12 @@
 # Ckad exam related
 
+# Docker 
+docker build -t IMAGE_NAME .
+docker save -o IMAGE_NAME.tar image
+
+docker buildx build --output type=oci,dest=filename.tar .
+
+
 # Find all resources one show
 kubectl get po,svc,deploy
 kubectl get all
