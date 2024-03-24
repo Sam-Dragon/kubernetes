@@ -3,6 +3,7 @@
 # Docker 
 docker build -t IMAGE_NAME .
 docker save -o IMAGE_NAME.tar image
+docker load < webapp-color.tar
 
 docker buildx build --output type=oci,dest=filename.tar .
 
